@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		A370A03822DFE7820097FFAD /* JanitorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A370A02E22DFE7820097FFAD /* JanitorKit.framework */; };
 		A370A03D22DFE7820097FFAD /* JanitorKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A370A03C22DFE7820097FFAD /* JanitorKitTests.swift */; };
-		A370A03F22DFE7820097FFAD /* JanitorKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A370A03122DFE7820097FFAD /* JanitorKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3F3784122E11E1E00642A90 /* URL Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3784022E11E1E00642A90 /* URL Constants.swift */; };
+		A3F3784322E11FCE00642A90 /* URL Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3784222E11FCE00642A90 /* URL Operators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +25,12 @@
 
 /* Begin PBXFileReference section */
 		A370A02E22DFE7820097FFAD /* JanitorKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JanitorKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A370A03122DFE7820097FFAD /* JanitorKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JanitorKit.h; sourceTree = "<group>"; };
 		A370A03222DFE7820097FFAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A370A03722DFE7820097FFAD /* JanitorKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JanitorKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A370A03C22DFE7820097FFAD /* JanitorKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JanitorKitTests.swift; sourceTree = "<group>"; };
 		A370A03E22DFE7820097FFAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3F3784022E11E1E00642A90 /* URL Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL Constants.swift"; path = "../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/URL Constants.swift"; sourceTree = "<group>"; };
+		A3F3784222E11FCE00642A90 /* URL Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL Operators.swift"; path = "../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/URL Operators.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +73,9 @@
 		A370A03022DFE7820097FFAD /* JanitorKit */ = {
 			isa = PBXGroup;
 			children = (
-				A370A03122DFE7820097FFAD /* JanitorKit.h */,
 				A370A03222DFE7820097FFAD /* Info.plist */,
+				A3F3784022E11E1E00642A90 /* URL Constants.swift */,
+				A3F3784222E11FCE00642A90 /* URL Operators.swift */,
 			);
 			path = JanitorKit;
 			sourceTree = "<group>";
@@ -93,7 +96,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A370A03F22DFE7820097FFAD /* JanitorKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +150,7 @@
 				TargetAttributes = {
 					A370A02D22DFE7820097FFAD = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 					A370A03622DFE7820097FFAD = {
 						CreatedOnToolsVersion = 11.0;
@@ -195,6 +198,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F3784322E11FCE00642A90 /* URL Operators.swift in Sources */,
+				A3F3784122E11E1E00642A90 /* URL Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,9 +344,10 @@
 		A370A04322DFE7820097FFAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 26V9MK8TGP;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -356,6 +362,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.benleggiero.JanitorKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -363,9 +370,10 @@
 		A370A04422DFE7820097FFAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 26V9MK8TGP;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -387,6 +395,7 @@
 		A370A04622DFE7820097FFAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 26V9MK8TGP;
@@ -405,6 +414,7 @@
 		A370A04722DFE7820097FFAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 26V9MK8TGP;
