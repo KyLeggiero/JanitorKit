@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		A370A03822DFE7820097FFAD /* JanitorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A370A02E22DFE7820097FFAD /* JanitorKit.framework */; };
 		A370A03D22DFE7820097FFAD /* JanitorKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A370A03C22DFE7820097FFAD /* JanitorKitTests.swift */; };
+		A3D4791C22E223F700F83308 /* TrackedDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4791B22E223F700F83308 /* TrackedDirectory.swift */; };
+		A3D4792822E2499400F83308 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792722E2499400F83308 /* UserDefault.swift */; };
+		A3D4792922E24EA300F83308 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792622E2498600F83308 /* UserPreferences.swift */; };
+		A3D4792B22E2577100F83308 /* AgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792A22E2577100F83308 /* AgeTests.swift */; };
+		A3D4793022E2593A00F83308 /* Unit Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792F22E2582800F83308 /* Unit Conversion.swift */; };
+		A3D4793122E2594C00F83308 /* DataSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792E22E2582800F83308 /* DataSize.swift */; };
+		A3D4793222E2594F00F83308 /* Age.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792D22E2582800F83308 /* Age.swift */; };
 		A3F3784122E11E1E00642A90 /* URL Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3784022E11E1E00642A90 /* URL Constants.swift */; };
 		A3F3784322E11FCE00642A90 /* URL Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3784222E11FCE00642A90 /* URL Operators.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +36,13 @@
 		A370A03722DFE7820097FFAD /* JanitorKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JanitorKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A370A03C22DFE7820097FFAD /* JanitorKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JanitorKitTests.swift; sourceTree = "<group>"; };
 		A370A03E22DFE7820097FFAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3D4791B22E223F700F83308 /* TrackedDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedDirectory.swift; sourceTree = "<group>"; };
+		A3D4792622E2498600F83308 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		A3D4792722E2499400F83308 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefault.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Serialization/UserDefault.swift"; sourceTree = "<group>"; };
+		A3D4792A22E2577100F83308 /* AgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AgeTests.swift; path = "../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKitTests/AgeTests.swift"; sourceTree = "<group>"; };
+		A3D4792D22E2582800F83308 /* Age.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Age.swift; sourceTree = "<group>"; };
+		A3D4792E22E2582800F83308 /* DataSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSize.swift; sourceTree = "<group>"; };
+		A3D4792F22E2582800F83308 /* Unit Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unit Conversion.swift"; sourceTree = "<group>"; };
 		A3F3784022E11E1E00642A90 /* URL Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL Constants.swift"; path = "../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/URL Constants.swift"; sourceTree = "<group>"; };
 		A3F3784222E11FCE00642A90 /* URL Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL Operators.swift"; path = "../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/URL Operators.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				A370A03222DFE7820097FFAD /* Info.plist */,
+				A3D4791B22E223F700F83308 /* TrackedDirectory.swift */,
+				A3D4792522E2498600F83308 /* Serialization */,
+				A3D4792C22E2582800F83308 /* Units */,
 				A3F3784022E11E1E00642A90 /* URL Constants.swift */,
 				A3F3784222E11FCE00642A90 /* URL Operators.swift */,
 			);
@@ -83,10 +100,30 @@
 		A370A03B22DFE7820097FFAD /* JanitorKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				A3D4792A22E2577100F83308 /* AgeTests.swift */,
 				A370A03C22DFE7820097FFAD /* JanitorKitTests.swift */,
 				A370A03E22DFE7820097FFAD /* Info.plist */,
 			);
 			path = JanitorKitTests;
+			sourceTree = "<group>";
+		};
+		A3D4792522E2498600F83308 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				A3D4792622E2498600F83308 /* UserPreferences.swift */,
+				A3D4792722E2499400F83308 /* UserDefault.swift */,
+			);
+			path = Serialization;
+			sourceTree = "<group>";
+		};
+		A3D4792C22E2582800F83308 /* Units */ = {
+			isa = PBXGroup;
+			children = (
+				A3D4792F22E2582800F83308 /* Unit Conversion.swift */,
+				A3D4792D22E2582800F83308 /* Age.swift */,
+				A3D4792E22E2582800F83308 /* DataSize.swift */,
+			);
+			path = Units;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,7 +235,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3D4792822E2499400F83308 /* UserDefault.swift in Sources */,
+				A3D4793222E2594F00F83308 /* Age.swift in Sources */,
+				A3D4791C22E223F700F83308 /* TrackedDirectory.swift in Sources */,
 				A3F3784322E11FCE00642A90 /* URL Operators.swift in Sources */,
+				A3D4792922E24EA300F83308 /* UserPreferences.swift in Sources */,
+				A3D4793122E2594C00F83308 /* DataSize.swift in Sources */,
+				A3D4793022E2593A00F83308 /* Unit Conversion.swift in Sources */,
 				A3F3784122E11E1E00642A90 /* URL Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A370A03D22DFE7820097FFAD /* JanitorKitTests.swift in Sources */,
+				A3D4792B22E2577100F83308 /* AgeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,7 +274,6 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -267,6 +310,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -279,7 +323,9 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -293,7 +339,6 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
@@ -324,6 +369,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -335,7 +381,9 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -344,7 +392,6 @@
 		A370A04322DFE7820097FFAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = NO;
@@ -370,7 +417,6 @@
 		A370A04422DFE7820097FFAD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = NO;
