@@ -11,116 +11,104 @@ import Foundation
 
 
 /// The size of some data, such as bytes, nibbles, gigabytes, mebibytes, etc.
-public struct DataSize: SimpleInitializableUnitDependent {
-
-    public typealias Unit = UnitInformationStorage
-    
-    
-    
-    public let value: Value
-    public let unit: Unit
-    
-    
-    public init(value: Value, unit: Unit) {
-        self.value = value
-        self.unit = unit
-    }
-}
-
-
-
-extension DataSize: Hashable {}
+public typealias DataSize = Measurement<BinaryDataUnit>
 
 
 
 // MARK: - Foundation Extensions
 
-extension UnitInformationStorage: CaseIterable {
+extension BinaryDataUnit: CaseIterable {
     
-    public typealias AllCases = [UnitInformationStorage]
+    public typealias AllCases = [BinaryDataUnit]
     
     
     
     public static let allCases: AllCases = [
-        .bytes,
+        .byte,
         
-        .bits,
-        .nibbles,
+        .bit,
+        .nibble,
         
-        .yottabytes,
-        .zettabytes,
-        .exabytes,
-        .petabytes,
-        .terabytes,
-        .gigabytes,
-        .megabytes,
-        .kilobytes,
+        .yottabyte,
+        .zettabyte,
+        .exabyte,
+        .petabyte,
+        .terabyte,
+        .gigabyte,
+        .megabyte,
+        .kilobyte,
         
-        .yottabits,
-        .zettabits,
-        .exabits,
-        .petabits,
-        .terabits,
-        .gigabits,
-        .megabits,
+        .yottabit,
+        .zettabit,
+        .exabit,
+        .petabit,
+        .terabit,
+        .gigabit,
+        .megabit,
         
-        .kilobits,
-        .yobibytes,
-        .zebibytes,
-        .exbibytes,
-        .pebibytes,
-        .tebibytes,
-        .gibibytes,
-        .mebibytes,
+        .kilobit,
+        .yobibyte,
+        .zebibyte,
+        .exbibyte,
+        .pebibyte,
+        .tebibyte,
+        .gibibyte,
+        .mebibyte,
         
-        .kibibytes,
-        .yobibits,
-        .zebibits,
-        .exbibits,
-        .pebibits,
-        .tebibits,
-        .gibibits,
-        .mebibits,
-        .kibibits,
+        .kibibyte,
+        .yobibit,
+        .zebibit,
+        .exbibit,
+        .pebibit,
+        .tebibit,
+        .gibibit,
+        .mebibit,
+        .kibibit,
     ]
 }
 
 
 
-extension BinaryFloatingPoint {
-    var bytes:      DataSize { DataSize(value: DataSize.Value(self), unit: .bytes) }
-    var bits:       DataSize { DataSize(value: DataSize.Value(self), unit: .bits) }
-    var nibbles:    DataSize { DataSize(value: DataSize.Value(self), unit: .nibbles) }
-    var yottabytes: DataSize { DataSize(value: DataSize.Value(self), unit: .yottabytes) }
-    var zettabytes: DataSize { DataSize(value: DataSize.Value(self), unit: .zettabytes) }
-    var exabytes:   DataSize { DataSize(value: DataSize.Value(self), unit: .exabytes) }
-    var petabytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .petabytes) }
-    var terabytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .terabytes) }
-    var gigabytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .gigabytes) }
-    var megabytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .megabytes) }
-    var kilobytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .kilobytes) }
-    var yottabits:  DataSize { DataSize(value: DataSize.Value(self), unit: .yottabits) }
-    var zettabits:  DataSize { DataSize(value: DataSize.Value(self), unit: .zettabits) }
-    var exabits:    DataSize { DataSize(value: DataSize.Value(self), unit: .exabits) }
-    var petabits:   DataSize { DataSize(value: DataSize.Value(self), unit: .petabits) }
-    var terabits:   DataSize { DataSize(value: DataSize.Value(self), unit: .terabits) }
-    var gigabits:   DataSize { DataSize(value: DataSize.Value(self), unit: .gigabits) }
-    var megabits:   DataSize { DataSize(value: DataSize.Value(self), unit: .megabits) }
-    var kilobits:   DataSize { DataSize(value: DataSize.Value(self), unit: .kilobits) }
-    var yobibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .yobibytes) }
-    var zebibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .zebibytes) }
-    var exbibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .exbibytes) }
-    var pebibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .pebibytes) }
-    var tebibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .tebibytes) }
-    var gibibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .gibibytes) }
-    var mebibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .mebibytes) }
-    var kibibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .kibibytes) }
-    var yobibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .yobibits) }
-    var zebibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .zebibits) }
-    var exbibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .exbibits) }
-    var pebibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .pebibits) }
-    var tebibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .tebibits) }
-    var gibibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .gibibits) }
-    var mebibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .mebibits) }
-    var kibibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .kibibits) }
+public extension BinaryFloatingPoint {
+    var bytes:      DataSize { DataSize(value: DataSize.Value(self), unit: .byte) }
+    
+    var bits:       DataSize { DataSize(value: DataSize.Value(self), unit: .bit) }
+    
+    var nibbles:    DataSize { DataSize(value: DataSize.Value(self), unit: .nibble) }
+    
+    var yottabytes: DataSize { DataSize(value: DataSize.Value(self), unit: .yottabyte) }
+    var zettabytes: DataSize { DataSize(value: DataSize.Value(self), unit: .zettabyte) }
+    var exabytes:   DataSize { DataSize(value: DataSize.Value(self), unit: .exabyte) }
+    var petabytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .petabyte) }
+    var terabytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .terabyte) }
+    var gigabytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .gigabyte) }
+    var megabytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .megabyte) }
+    var kilobytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .kilobyte) }
+    
+    var yottabits:  DataSize { DataSize(value: DataSize.Value(self), unit: .yottabit) }
+    var zettabits:  DataSize { DataSize(value: DataSize.Value(self), unit: .zettabit) }
+    var exabits:    DataSize { DataSize(value: DataSize.Value(self), unit: .exabit) }
+    var petabits:   DataSize { DataSize(value: DataSize.Value(self), unit: .petabit) }
+    var terabits:   DataSize { DataSize(value: DataSize.Value(self), unit: .terabit) }
+    var gigabits:   DataSize { DataSize(value: DataSize.Value(self), unit: .gigabit) }
+    var megabits:   DataSize { DataSize(value: DataSize.Value(self), unit: .megabit) }
+    var kilobits:   DataSize { DataSize(value: DataSize.Value(self), unit: .kilobit) }
+    
+    var yobibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .yobibyte) }
+    var zebibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .zebibyte) }
+    var exbibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .exbibyte) }
+    var pebibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .pebibyte) }
+    var tebibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .tebibyte) }
+    var gibibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .gibibyte) }
+    var mebibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .mebibyte) }
+    var kibibytes:  DataSize { DataSize(value: DataSize.Value(self), unit: .kibibyte) }
+    
+    var yobibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .yobibit) }
+    var zebibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .zebibit) }
+    var exbibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .exbibit) }
+    var pebibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .pebibit) }
+    var tebibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .tebibit) }
+    var gibibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .gibibit) }
+    var mebibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .mebibit) }
+    var kibibits:   DataSize { DataSize(value: DataSize.Value(self), unit: .kibibit) }
 }

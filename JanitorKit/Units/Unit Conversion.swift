@@ -11,7 +11,7 @@ import Foundation
 
 
 /// Anything which has a value which is dependent on a unit for context
-public protocol UnitDependent: HasBaseUnit where Unit: Dimension {
+public protocol UnitDependent: HasBaseUnit where Unit: MeasurementUnit {
     
     /// The raw value, in the context of the unit
     var value: Value { get }
@@ -27,7 +27,7 @@ public protocol UnitDependent: HasBaseUnit where Unit: Dimension {
 
 
 public extension UnitDependent {
-    static var baseUnit: Unit { Unit.baseUnit() }
+    static var baseUnit: Unit { Unit.base }
 }
 
 
@@ -43,16 +43,14 @@ public protocol SimpleInitializableUnitDependent: UnitDependent, ExpressibleByFl
 
 public extension SimpleInitializableUnitDependent {
     
-    init(_ other: Self, in newUnit: Self.Unit) {
+    init(converting other: Self, to newUnit: Self.Unit) {
         self = other.convert(to: newUnit)
     }
     
     
     /// Converts this value in its unit to a new value in the given other unit
     func convert(to otherUnit: Self.Unit) -> Self {
-        let baseValue = self.unit.converter.baseUnitValue(fromValue: self.value)
-        let convertedValue = otherUnit.converter.value(fromBaseUnitValue: baseValue)
-        return Self.init(value: convertedValue, unit: otherUnit)
+        return Self.init(value: unit.convert(value: self.value, to: otherUnit), unit: otherUnit)
     }
 }
 
@@ -95,10 +93,7 @@ public protocol HasBaseUnit {
 
 
 
-// MARK: - Foundation Extensions
+// MARK: - Conformance
 
-extension Dimension: HasBaseUnit {
-    public static var baseUnit: Dimension {
-        return self.baseUnit()
-    }
+extension Measurement: SimpleInitializableUnitDependent {
 }

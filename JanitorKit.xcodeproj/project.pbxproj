@@ -7,8 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A31C005822EADBE0008B4582 /* DurationMeasurementUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C005722EADBE0008B4582 /* DurationMeasurementUnit.swift */; };
+		A31C005E22EB6446008B4582 /* BinaryDataUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C005D22EB6446008B4582 /* BinaryDataUnit.swift */; };
+		A31C007422EB6D53008B4582 /* PluralizableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007322EB6D53008B4582 /* PluralizableString.swift */; };
+		A31C007622EB7318008B4582 /* Indexed Higher-Order Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007522EB7318008B4582 /* Indexed Higher-Order Functions.swift */; };
+		A31C007A22EBC2D7008B4582 /* JSON utilties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007922EBC2D6008B4582 /* JSON utilties.swift */; };
+		A31C007C22EBD911008B4582 /* TrackedDirectory+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007B22EBD911008B4582 /* TrackedDirectory+SwiftUI.swift */; };
+		A31C007E22EBD98E008B4582 /* UserPreferences+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007D22EBD98E008B4582 /* UserPreferences+SwiftUI.swift */; };
+		A31C008222EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C008122EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift */; };
 		A370A03822DFE7820097FFAD /* JanitorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A370A02E22DFE7820097FFAD /* JanitorKit.framework */; };
 		A370A03D22DFE7820097FFAD /* JanitorKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A370A03C22DFE7820097FFAD /* JanitorKitTests.swift */; };
+		A384846622ED9A460012113E /* Array Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384846522ED9A460012113E /* Array Extensions.swift */; };
+		A39E571E22EABF2200B416C4 /* MeasurementUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E571D22EABF2200B416C4 /* MeasurementUnit.swift */; };
+		A39E572022EAC08900B416C4 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E571F22EAC08900B416C4 /* Measurement.swift */; };
 		A3D4791C22E223F700F83308 /* TrackedDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4791B22E223F700F83308 /* TrackedDirectory.swift */; };
 		A3D4792822E2499400F83308 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792722E2499400F83308 /* UserDefault.swift */; };
 		A3D4792922E24EA300F83308 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792622E2498600F83308 /* UserPreferences.swift */; };
@@ -31,11 +42,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A31C005722EADBE0008B4582 /* DurationMeasurementUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DurationMeasurementUnit.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Units/DurationMeasurementUnit.swift"; sourceTree = "<group>"; };
+		A31C005A22EB6429008B4582 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		A31C005B22EB6429008B4582 /* DurationMeasurementUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationMeasurementUnit.swift; sourceTree = "<group>"; };
+		A31C005C22EB6429008B4582 /* MeasurementUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementUnit.swift; sourceTree = "<group>"; };
+		A31C005D22EB6446008B4582 /* BinaryDataUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BinaryDataUnit.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Units/Measurement Unit Framework/BinaryDataUnit.swift"; sourceTree = "<group>"; };
+		A31C007322EB6D53008B4582 /* PluralizableString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PluralizableString.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/PluralizableString.swift"; sourceTree = "<group>"; };
+		A31C007522EB7318008B4582 /* Indexed Higher-Order Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Indexed Higher-Order Functions.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/Indexed Higher-Order Functions.swift"; sourceTree = "<group>"; };
+		A31C007922EBC2D6008B4582 /* JSON utilties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "JSON utilties.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Serialization/JSON utilties.swift"; sourceTree = "<group>"; };
+		A31C007B22EBD911008B4582 /* TrackedDirectory+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackedDirectory+SwiftUI.swift"; path = "../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/TrackedDirectory+SwiftUI.swift"; sourceTree = "<group>"; };
+		A31C007D22EBD98E008B4582 /* UserPreferences+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserPreferences+SwiftUI.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Serialization/UserPreferences+SwiftUI.swift"; sourceTree = "<group>"; };
+		A31C008122EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IdentifiableOnlyIfUsingSwiftUI.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/IdentifiableOnlyIfUsingSwiftUI.swift"; sourceTree = "<group>"; };
 		A370A02E22DFE7820097FFAD /* JanitorKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JanitorKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A370A03222DFE7820097FFAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A370A03722DFE7820097FFAD /* JanitorKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JanitorKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A370A03C22DFE7820097FFAD /* JanitorKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JanitorKitTests.swift; sourceTree = "<group>"; };
 		A370A03E22DFE7820097FFAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A384846522ED9A460012113E /* Array Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Array Extensions.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/Array Extensions.swift"; sourceTree = "<group>"; };
+		A39E571D22EABF2200B416C4 /* MeasurementUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeasurementUnit.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Units/MeasurementUnit.swift"; sourceTree = "<group>"; };
+		A39E571F22EAC08900B416C4 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Measurement.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Units/Measurement.swift"; sourceTree = "<group>"; };
 		A3D4791B22E223F700F83308 /* TrackedDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedDirectory.swift; sourceTree = "<group>"; };
 		A3D4792622E2498600F83308 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		A3D4792722E2499400F83308 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefault.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Serialization/UserDefault.swift"; sourceTree = "<group>"; };
@@ -66,6 +91,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A31C005922EB6429008B4582 /* Measurement Unit Framework */ = {
+			isa = PBXGroup;
+			children = (
+				A31C005C22EB6429008B4582 /* MeasurementUnit.swift */,
+				A31C005A22EB6429008B4582 /* Measurement.swift */,
+				A31C005B22EB6429008B4582 /* DurationMeasurementUnit.swift */,
+				A31C005D22EB6446008B4582 /* BinaryDataUnit.swift */,
+			);
+			path = "Measurement Unit Framework";
+			sourceTree = "<group>";
+		};
+		A31C007222EB6D48008B4582 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				A31C007322EB6D53008B4582 /* PluralizableString.swift */,
+				A31C007522EB7318008B4582 /* Indexed Higher-Order Functions.swift */,
+				A31C008122EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift */,
+				A384846522ED9A460012113E /* Array Extensions.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		A370A02422DFE7820097FFAD = {
 			isa = PBXGroup;
 			children = (
@@ -88,9 +135,11 @@
 			isa = PBXGroup;
 			children = (
 				A370A03222DFE7820097FFAD /* Info.plist */,
-				A3D4791B22E223F700F83308 /* TrackedDirectory.swift */,
+				A31C007222EB6D48008B4582 /* General */,
 				A3D4792522E2498600F83308 /* Serialization */,
 				A3D4792C22E2582800F83308 /* Units */,
+				A3D4791B22E223F700F83308 /* TrackedDirectory.swift */,
+				A31C007B22EBD911008B4582 /* TrackedDirectory+SwiftUI.swift */,
 				A3F3784022E11E1E00642A90 /* URL Constants.swift */,
 				A3F3784222E11FCE00642A90 /* URL Operators.swift */,
 			);
@@ -111,7 +160,9 @@
 			isa = PBXGroup;
 			children = (
 				A3D4792622E2498600F83308 /* UserPreferences.swift */,
+				A31C007D22EBD98E008B4582 /* UserPreferences+SwiftUI.swift */,
 				A3D4792722E2499400F83308 /* UserDefault.swift */,
+				A31C007922EBC2D6008B4582 /* JSON utilties.swift */,
 			);
 			path = Serialization;
 			sourceTree = "<group>";
@@ -119,6 +170,10 @@
 		A3D4792C22E2582800F83308 /* Units */ = {
 			isa = PBXGroup;
 			children = (
+				A31C005922EB6429008B4582 /* Measurement Unit Framework */,
+				A39E571D22EABF2200B416C4 /* MeasurementUnit.swift */,
+				A39E571F22EAC08900B416C4 /* Measurement.swift */,
+				A31C005722EADBE0008B4582 /* DurationMeasurementUnit.swift */,
 				A3D4792F22E2582800F83308 /* Unit Conversion.swift */,
 				A3D4792D22E2582800F83308 /* Age.swift */,
 				A3D4792E22E2582800F83308 /* DataSize.swift */,
@@ -235,13 +290,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A31C007422EB6D53008B4582 /* PluralizableString.swift in Sources */,
 				A3D4792822E2499400F83308 /* UserDefault.swift in Sources */,
+				A31C007C22EBD911008B4582 /* TrackedDirectory+SwiftUI.swift in Sources */,
 				A3D4793222E2594F00F83308 /* Age.swift in Sources */,
+				A39E572022EAC08900B416C4 /* Measurement.swift in Sources */,
 				A3D4791C22E223F700F83308 /* TrackedDirectory.swift in Sources */,
+				A384846622ED9A460012113E /* Array Extensions.swift in Sources */,
+				A31C007E22EBD98E008B4582 /* UserPreferences+SwiftUI.swift in Sources */,
 				A3F3784322E11FCE00642A90 /* URL Operators.swift in Sources */,
+				A39E571E22EABF2200B416C4 /* MeasurementUnit.swift in Sources */,
+				A31C007622EB7318008B4582 /* Indexed Higher-Order Functions.swift in Sources */,
 				A3D4792922E24EA300F83308 /* UserPreferences.swift in Sources */,
+				A31C007A22EBC2D7008B4582 /* JSON utilties.swift in Sources */,
+				A31C005822EADBE0008B4582 /* DurationMeasurementUnit.swift in Sources */,
 				A3D4793122E2594C00F83308 /* DataSize.swift in Sources */,
+				A31C008222EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift in Sources */,
 				A3D4793022E2593A00F83308 /* Unit Conversion.swift in Sources */,
+				A31C005E22EB6446008B4582 /* BinaryDataUnit.swift in Sources */,
 				A3F3784122E11E1E00642A90 /* URL Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

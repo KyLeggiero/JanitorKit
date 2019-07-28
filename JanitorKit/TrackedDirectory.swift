@@ -11,11 +11,13 @@ import Foundation
 
 
 public struct TrackedDirectory {
-    public let url: URL
-    public let oldestAllowedAge: Age
-    public let largestAllowedTotalSize: DataSize
+    public var isEnabled: Bool
+    public var url: URL
+    public var oldestAllowedAge: Age
+    public var largestAllowedTotalSize: DataSize
     
-    public init(url: URL, oldestAllowedAge: Age, largestAllowedTotalSize: DataSize) {
+    public init(isEnabled: Bool = true, url: URL, oldestAllowedAge: Age, largestAllowedTotalSize: DataSize) {
+        self.isEnabled = isEnabled
         self.url = url
         self.oldestAllowedAge = oldestAllowedAge
         self.largestAllowedTotalSize = largestAllowedTotalSize
@@ -24,4 +26,12 @@ public struct TrackedDirectory {
 
 
 
-extension TrackedDirectory: Hashable {}
+extension TrackedDirectory: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(url)
+    }
+}
+
+
+
+extension TrackedDirectory: Codable {}

@@ -16,10 +16,13 @@ public enum UserPreferences {
 
 
 
-extension UserPreferences {
+public extension UserPreferences {
     @UserDefault("trackedDirectories")
-    public static var trackedDirectories = [TrackedDirectory]()
+    static var trackedDirectories: [TrackedDirectory] = [
+        TrackedDirectory(isEnabled: false, url: URL.User.downloads!, oldestAllowedAge: 30.days, largestAllowedTotalSize: 1.gibibytes),
+        TrackedDirectory(isEnabled: false, url: URL.User.desktop!, oldestAllowedAge: 90.days, largestAllowedTotalSize: 5.gibibytes),
+    ]
     
     @UserDefault("checkingDelay")
-    public static var checkingDelay = 5.minutes
+    static var checkingDelay = 5.minutes
 }
