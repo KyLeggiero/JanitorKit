@@ -12,8 +12,14 @@ import SwiftUI
 
 public extension Array where Element: Identifiable {
     
+    func firstIndex(ofElementWithId needleId: Element.ID) -> Index? {
+        return firstIndex(where: { $0.id == needleId })
+    }
+    
+    
+    @discardableResult
     mutating func replaceOrAppend(_ changedOrNewElement: Element) -> ReplaceOrAppendResult {
-        if let index = firstIndex(where: { $0.id == changedOrNewElement.id }) {
+        if let index = firstIndex(ofElementWithId: changedOrNewElement.id) {
             self[index] = changedOrNewElement
             return .didReplace
         }
@@ -24,9 +30,28 @@ public extension Array where Element: Identifiable {
     }
     
     
+    @discardableResult
+    mutating func remove(firstElementWithId itemId: Element.ID) -> RemoveResult? {
+        if let itemIndex = firstIndex(ofElementWithId: itemId) {
+            let removedElement = remove(at: itemIndex)
+            return .removedSuccessfully(removedElement: removedElement)
+        }
+        else {
+            return .noSuchElementFound
+        }
+    }
+    
+    
     
     enum ReplaceOrAppendResult {
         case didReplace
         case didAppend
+    }
+    
+    
+    
+    enum RemoveResult {
+        case noSuchElementFound
+        case removedSuccessfully(removedElement: Element)
     }
 }

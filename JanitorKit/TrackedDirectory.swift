@@ -35,3 +35,10 @@ extension TrackedDirectory: Hashable {
 
 
 extension TrackedDirectory: Codable {}
+
+
+
+public extension TrackedDirectory {
+    /// The default instance of a tracked directory; a safe example to show and use as a base
+    static let `default` = TrackedDirectory(url: URL.User.downloads!, oldestAllowedAge: 30.days, largestAllowedTotalSize: 1.gigabytes)
+}

@@ -20,6 +20,9 @@
 		A384846622ED9A460012113E /* Array Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384846522ED9A460012113E /* Array Extensions.swift */; };
 		A39E571E22EABF2200B416C4 /* MeasurementUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E571D22EABF2200B416C4 /* MeasurementUnit.swift */; };
 		A39E572022EAC08900B416C4 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E571F22EAC08900B416C4 /* Measurement.swift */; };
+		A3C1569322EE9177009A3314 /* Semantic Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1569222EE9177009A3314 /* Semantic Typealiases.swift */; };
+		A3C1569522EEA14B009A3314 /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1569422EEA14B009A3314 /* Pointer.swift */; };
+		A3C1569722EFE343009A3314 /* BoundPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1569622EFE342009A3314 /* BoundPointer.swift */; };
 		A3D4791C22E223F700F83308 /* TrackedDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4791B22E223F700F83308 /* TrackedDirectory.swift */; };
 		A3D4792822E2499400F83308 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792722E2499400F83308 /* UserDefault.swift */; };
 		A3D4792922E24EA300F83308 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792622E2498600F83308 /* UserPreferences.swift */; };
@@ -61,6 +64,9 @@
 		A384846522ED9A460012113E /* Array Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Array Extensions.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/Array Extensions.swift"; sourceTree = "<group>"; };
 		A39E571D22EABF2200B416C4 /* MeasurementUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeasurementUnit.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Units/MeasurementUnit.swift"; sourceTree = "<group>"; };
 		A39E571F22EAC08900B416C4 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Measurement.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Units/Measurement.swift"; sourceTree = "<group>"; };
+		A3C1569222EE9177009A3314 /* Semantic Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Semantic Typealiases.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/Semantic Typealiases.swift"; sourceTree = "<group>"; };
+		A3C1569422EEA14B009A3314 /* Pointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pointer.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/Pointer.swift"; sourceTree = "<group>"; };
+		A3C1569622EFE342009A3314 /* BoundPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoundPointer.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/BoundPointer.swift"; sourceTree = "<group>"; };
 		A3D4791B22E223F700F83308 /* TrackedDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedDirectory.swift; sourceTree = "<group>"; };
 		A3D4792622E2498600F83308 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		A3D4792722E2499400F83308 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefault.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Serialization/UserDefault.swift"; sourceTree = "<group>"; };
@@ -109,6 +115,9 @@
 				A31C007522EB7318008B4582 /* Indexed Higher-Order Functions.swift */,
 				A31C008122EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift */,
 				A384846522ED9A460012113E /* Array Extensions.swift */,
+				A3C1569222EE9177009A3314 /* Semantic Typealiases.swift */,
+				A3C1569422EEA14B009A3314 /* Pointer.swift */,
+				A3C1569622EFE342009A3314 /* BoundPointer.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -291,10 +300,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A31C007422EB6D53008B4582 /* PluralizableString.swift in Sources */,
+				A3C1569322EE9177009A3314 /* Semantic Typealiases.swift in Sources */,
 				A3D4792822E2499400F83308 /* UserDefault.swift in Sources */,
 				A31C007C22EBD911008B4582 /* TrackedDirectory+SwiftUI.swift in Sources */,
 				A3D4793222E2594F00F83308 /* Age.swift in Sources */,
 				A39E572022EAC08900B416C4 /* Measurement.swift in Sources */,
+				A3C1569722EFE343009A3314 /* BoundPointer.swift in Sources */,
 				A3D4791C22E223F700F83308 /* TrackedDirectory.swift in Sources */,
 				A384846622ED9A460012113E /* Array Extensions.swift in Sources */,
 				A31C007E22EBD98E008B4582 /* UserPreferences+SwiftUI.swift in Sources */,
@@ -309,6 +320,7 @@
 				A3D4793022E2593A00F83308 /* Unit Conversion.swift in Sources */,
 				A31C005E22EB6446008B4582 /* BinaryDataUnit.swift in Sources */,
 				A3F3784122E11E1E00642A90 /* URL Constants.swift in Sources */,
+				A3C1569522EEA14B009A3314 /* Pointer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
