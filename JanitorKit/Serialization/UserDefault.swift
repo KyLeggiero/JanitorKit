@@ -7,22 +7,23 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 
 @propertyWrapper
-public struct UserDefault<Value> where Value: Codable {
+public struct UserDefault<Value>: DynamicProperty where Value: Codable {
     let defaultValue: Value
     let key: String
     let userDefaults: UserDefaults
 
-    init(initialValue: Value, _ key: String, userDefaults: UserDefaults = .standard) {
+    init(wrappedValue: Value, _ key: String, userDefaults: UserDefaults = .standard) {
         self.key = key
-        self.defaultValue = initialValue
+        self.defaultValue = wrappedValue
         self.userDefaults = userDefaults
         
         if !isSerialized() {
-            setValue(initialValue)
+            setValue(wrappedValue)
         }
     }
 
@@ -30,7 +31,7 @@ public struct UserDefault<Value> where Value: Codable {
         get {
             return value()
         }
-        set {
+        nonmutating set {
             setValue(newValue)
         }
     }

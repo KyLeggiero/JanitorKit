@@ -12,17 +12,24 @@
 		A31C007422EB6D53008B4582 /* PluralizableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007322EB6D53008B4582 /* PluralizableString.swift */; };
 		A31C007622EB7318008B4582 /* Indexed Higher-Order Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007522EB7318008B4582 /* Indexed Higher-Order Functions.swift */; };
 		A31C007A22EBC2D7008B4582 /* JSON utilties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007922EBC2D6008B4582 /* JSON utilties.swift */; };
-		A31C007C22EBD911008B4582 /* TrackedDirectory+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007B22EBD911008B4582 /* TrackedDirectory+SwiftUI.swift */; };
 		A31C007E22EBD98E008B4582 /* UserPreferences+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007D22EBD98E008B4582 /* UserPreferences+SwiftUI.swift */; };
 		A31C008222EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C008122EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift */; };
+		A35ECE6522F662C50057B449 /* Bool Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35ECE6422F662C50057B449 /* Bool Extensions.swift */; };
 		A370A03822DFE7820097FFAD /* JanitorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A370A02E22DFE7820097FFAD /* JanitorKit.framework */; };
 		A370A03D22DFE7820097FFAD /* JanitorKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A370A03C22DFE7820097FFAD /* JanitorKitTests.swift */; };
 		A384846622ED9A460012113E /* Array Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384846522ED9A460012113E /* Array Extensions.swift */; };
 		A39E571E22EABF2200B416C4 /* MeasurementUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E571D22EABF2200B416C4 /* MeasurementUnit.swift */; };
 		A39E572022EAC08900B416C4 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E571F22EAC08900B416C4 /* Measurement.swift */; };
+		A39EC54622F6D91A00D8015F /* Callback Return Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC54522F6D91A00D8015F /* Callback Return Type.swift */; };
+		A39EC54822F6E14500D8015F /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC54722F6E14500D8015F /* Generator.swift */; };
 		A3C1569322EE9177009A3314 /* Semantic Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1569222EE9177009A3314 /* Semantic Typealiases.swift */; };
 		A3C1569522EEA14B009A3314 /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1569422EEA14B009A3314 /* Pointer.swift */; };
 		A3C1569722EFE343009A3314 /* BoundPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1569622EFE342009A3314 /* BoundPointer.swift */; };
+		A3CDF49F22F62D65002ECFBA /* JanitorialEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CDF49E22F62D65002ECFBA /* JanitorialEngine.swift */; };
+		A3CDF4A122F631CC002ECFBA /* Black Holes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CDF4A022F631CC002ECFBA /* Black Holes.swift */; };
+		A3CDF4A322F64016002ECFBA /* Directory Analysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CDF4A222F64016002ECFBA /* Directory Analysis.swift */; };
+		A3CDF4A522F64093002ECFBA /* URL Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CDF4A422F64093002ECFBA /* URL Extensions.swift */; };
+		A3CDF4A722F64576002ECFBA /* AnnotatedFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CDF4A622F64576002ECFBA /* AnnotatedFile.swift */; };
 		A3D4791C22E223F700F83308 /* TrackedDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4791B22E223F700F83308 /* TrackedDirectory.swift */; };
 		A3D4792822E2499400F83308 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792722E2499400F83308 /* UserDefault.swift */; };
 		A3D4792922E24EA300F83308 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792622E2498600F83308 /* UserPreferences.swift */; };
@@ -45,37 +52,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A31C005722EADBE0008B4582 /* DurationMeasurementUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DurationMeasurementUnit.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Units/DurationMeasurementUnit.swift"; sourceTree = "<group>"; };
-		A31C005A22EB6429008B4582 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
-		A31C005B22EB6429008B4582 /* DurationMeasurementUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationMeasurementUnit.swift; sourceTree = "<group>"; };
-		A31C005C22EB6429008B4582 /* MeasurementUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementUnit.swift; sourceTree = "<group>"; };
-		A31C005D22EB6446008B4582 /* BinaryDataUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BinaryDataUnit.swift; path = "../../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Units/Measurement Unit Framework/BinaryDataUnit.swift"; sourceTree = "<group>"; };
-		A31C007322EB6D53008B4582 /* PluralizableString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PluralizableString.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/PluralizableString.swift"; sourceTree = "<group>"; };
-		A31C007522EB7318008B4582 /* Indexed Higher-Order Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Indexed Higher-Order Functions.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/Indexed Higher-Order Functions.swift"; sourceTree = "<group>"; };
-		A31C007922EBC2D6008B4582 /* JSON utilties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "JSON utilties.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Serialization/JSON utilties.swift"; sourceTree = "<group>"; };
-		A31C007B22EBD911008B4582 /* TrackedDirectory+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TrackedDirectory+SwiftUI.swift"; path = "../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/TrackedDirectory+SwiftUI.swift"; sourceTree = "<group>"; };
-		A31C007D22EBD98E008B4582 /* UserPreferences+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UserPreferences+SwiftUI.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Serialization/UserPreferences+SwiftUI.swift"; sourceTree = "<group>"; };
-		A31C008122EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IdentifiableOnlyIfUsingSwiftUI.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/IdentifiableOnlyIfUsingSwiftUI.swift"; sourceTree = "<group>"; };
+		A31C005722EADBE0008B4582 /* DurationMeasurementUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationMeasurementUnit.swift; sourceTree = "<group>"; };
+		A31C005D22EB6446008B4582 /* BinaryDataUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryDataUnit.swift; sourceTree = "<group>"; };
+		A31C007322EB6D53008B4582 /* PluralizableString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PluralizableString.swift; sourceTree = "<group>"; };
+		A31C007522EB7318008B4582 /* Indexed Higher-Order Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Indexed Higher-Order Functions.swift"; sourceTree = "<group>"; };
+		A31C007922EBC2D6008B4582 /* JSON utilties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSON utilties.swift"; sourceTree = "<group>"; };
+		A31C007D22EBD98E008B4582 /* UserPreferences+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserPreferences+SwiftUI.swift"; sourceTree = "<group>"; };
+		A31C008122EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableOnlyIfUsingSwiftUI.swift; sourceTree = "<group>"; };
+		A35ECE6422F662C50057B449 /* Bool Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool Extensions.swift"; sourceTree = "<group>"; };
 		A370A02E22DFE7820097FFAD /* JanitorKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JanitorKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A370A03222DFE7820097FFAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A370A03722DFE7820097FFAD /* JanitorKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JanitorKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A370A03C22DFE7820097FFAD /* JanitorKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JanitorKitTests.swift; sourceTree = "<group>"; };
 		A370A03E22DFE7820097FFAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A384846522ED9A460012113E /* Array Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Array Extensions.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/Array Extensions.swift"; sourceTree = "<group>"; };
-		A39E571D22EABF2200B416C4 /* MeasurementUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeasurementUnit.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Units/MeasurementUnit.swift"; sourceTree = "<group>"; };
-		A39E571F22EAC08900B416C4 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Measurement.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Units/Measurement.swift"; sourceTree = "<group>"; };
-		A3C1569222EE9177009A3314 /* Semantic Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Semantic Typealiases.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/Semantic Typealiases.swift"; sourceTree = "<group>"; };
-		A3C1569422EEA14B009A3314 /* Pointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pointer.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/Pointer.swift"; sourceTree = "<group>"; };
-		A3C1569622EFE342009A3314 /* BoundPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoundPointer.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/General/BoundPointer.swift"; sourceTree = "<group>"; };
+		A384846522ED9A460012113E /* Array Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array Extensions.swift"; sourceTree = "<group>"; };
+		A39E571D22EABF2200B416C4 /* MeasurementUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementUnit.swift; sourceTree = "<group>"; };
+		A39E571F22EAC08900B416C4 /* Measurement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measurement.swift; sourceTree = "<group>"; };
+		A39EC54522F6D91A00D8015F /* Callback Return Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Callback Return Type.swift"; sourceTree = "<group>"; };
+		A39EC54722F6E14500D8015F /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
+		A3C1569222EE9177009A3314 /* Semantic Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Semantic Typealiases.swift"; sourceTree = "<group>"; };
+		A3C1569422EEA14B009A3314 /* Pointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pointer.swift; sourceTree = "<group>"; };
+		A3C1569622EFE342009A3314 /* BoundPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoundPointer.swift; sourceTree = "<group>"; };
+		A3CDF49E22F62D65002ECFBA /* JanitorialEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JanitorialEngine.swift; sourceTree = "<group>"; };
+		A3CDF4A022F631CC002ECFBA /* Black Holes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Black Holes.swift"; sourceTree = "<group>"; };
+		A3CDF4A222F64016002ECFBA /* Directory Analysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Directory Analysis.swift"; sourceTree = "<group>"; };
+		A3CDF4A422F64093002ECFBA /* URL Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL Extensions.swift"; sourceTree = "<group>"; };
+		A3CDF4A622F64576002ECFBA /* AnnotatedFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotatedFile.swift; sourceTree = "<group>"; };
 		A3D4791B22E223F700F83308 /* TrackedDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackedDirectory.swift; sourceTree = "<group>"; };
 		A3D4792622E2498600F83308 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
-		A3D4792722E2499400F83308 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefault.swift; path = "../../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/Serialization/UserDefault.swift"; sourceTree = "<group>"; };
+		A3D4792722E2499400F83308 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		A3D4792A22E2577100F83308 /* AgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AgeTests.swift; path = "../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKitTests/AgeTests.swift"; sourceTree = "<group>"; };
 		A3D4792D22E2582800F83308 /* Age.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Age.swift; sourceTree = "<group>"; };
 		A3D4792E22E2582800F83308 /* DataSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSize.swift; sourceTree = "<group>"; };
 		A3D4792F22E2582800F83308 /* Unit Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Unit Conversion.swift"; sourceTree = "<group>"; };
-		A3F3784022E11E1E00642A90 /* URL Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL Constants.swift"; path = "../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/URL Constants.swift"; sourceTree = "<group>"; };
-		A3F3784222E11FCE00642A90 /* URL Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL Operators.swift"; path = "../../../../../../../../../System/Volumes/Data/Users/benleggiero/Google Drive/Libraries/Projects/From Me/Janitor/JanitorKit/JanitorKit/URL Operators.swift"; sourceTree = "<group>"; };
+		A3F3784022E11E1E00642A90 /* URL Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL Constants.swift"; sourceTree = "<group>"; };
+		A3F3784222E11FCE00642A90 /* URL Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL Operators.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +111,13 @@
 		A31C005922EB6429008B4582 /* Measurement Unit Framework */ = {
 			isa = PBXGroup;
 			children = (
-				A31C005C22EB6429008B4582 /* MeasurementUnit.swift */,
-				A31C005A22EB6429008B4582 /* Measurement.swift */,
-				A31C005B22EB6429008B4582 /* DurationMeasurementUnit.swift */,
+				A3D4792D22E2582800F83308 /* Age.swift */,
+				A39E571D22EABF2200B416C4 /* MeasurementUnit.swift */,
+				A39E571F22EAC08900B416C4 /* Measurement.swift */,
+				A31C005722EADBE0008B4582 /* DurationMeasurementUnit.swift */,
+				A3D4792E22E2582800F83308 /* DataSize.swift */,
 				A31C005D22EB6446008B4582 /* BinaryDataUnit.swift */,
+				A3D4792F22E2582800F83308 /* Unit Conversion.swift */,
 			);
 			path = "Measurement Unit Framework";
 			sourceTree = "<group>";
@@ -111,13 +125,20 @@
 		A31C007222EB6D48008B4582 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				A31C007322EB6D53008B4582 /* PluralizableString.swift */,
-				A31C007522EB7318008B4582 /* Indexed Higher-Order Functions.swift */,
-				A31C008122EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift */,
 				A384846522ED9A460012113E /* Array Extensions.swift */,
-				A3C1569222EE9177009A3314 /* Semantic Typealiases.swift */,
-				A3C1569422EEA14B009A3314 /* Pointer.swift */,
 				A3C1569622EFE342009A3314 /* BoundPointer.swift */,
+				A35ECE6422F662C50057B449 /* Bool Extensions.swift */,
+				A31C008122EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift */,
+				A31C007522EB7318008B4582 /* Indexed Higher-Order Functions.swift */,
+				A31C007322EB6D53008B4582 /* PluralizableString.swift */,
+				A3C1569422EEA14B009A3314 /* Pointer.swift */,
+				A3C1569222EE9177009A3314 /* Semantic Typealiases.swift */,
+				A3F3784022E11E1E00642A90 /* URL Constants.swift */,
+				A3F3784222E11FCE00642A90 /* URL Operators.swift */,
+				A3CDF4A422F64093002ECFBA /* URL Extensions.swift */,
+				A3CDF4A022F631CC002ECFBA /* Black Holes.swift */,
+				A39EC54522F6D91A00D8015F /* Callback Return Type.swift */,
+				A39EC54722F6E14500D8015F /* Generator.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -143,14 +164,12 @@
 		A370A03022DFE7820097FFAD /* JanitorKit */ = {
 			isa = PBXGroup;
 			children = (
-				A370A03222DFE7820097FFAD /* Info.plist */,
 				A31C007222EB6D48008B4582 /* General */,
+				A3CDF49922F62B46002ECFBA /* Janitorial Duties */,
+				A3CDF49D22F62C8A002ECFBA /* Janitorial Engine */,
+				A31C005922EB6429008B4582 /* Measurement Unit Framework */,
+				A3CDF49A22F62B4E002ECFBA /* Meta Info */,
 				A3D4792522E2498600F83308 /* Serialization */,
-				A3D4792C22E2582800F83308 /* Units */,
-				A3D4791B22E223F700F83308 /* TrackedDirectory.swift */,
-				A31C007B22EBD911008B4582 /* TrackedDirectory+SwiftUI.swift */,
-				A3F3784022E11E1E00642A90 /* URL Constants.swift */,
-				A3F3784222E11FCE00642A90 /* URL Operators.swift */,
 			);
 			path = JanitorKit;
 			sourceTree = "<group>";
@@ -165,6 +184,32 @@
 			path = JanitorKitTests;
 			sourceTree = "<group>";
 		};
+		A3CDF49922F62B46002ECFBA /* Janitorial Duties */ = {
+			isa = PBXGroup;
+			children = (
+				A3D4791B22E223F700F83308 /* TrackedDirectory.swift */,
+			);
+			path = "Janitorial Duties";
+			sourceTree = "<group>";
+		};
+		A3CDF49A22F62B4E002ECFBA /* Meta Info */ = {
+			isa = PBXGroup;
+			children = (
+				A370A03222DFE7820097FFAD /* Info.plist */,
+			);
+			name = "Meta Info";
+			sourceTree = "<group>";
+		};
+		A3CDF49D22F62C8A002ECFBA /* Janitorial Engine */ = {
+			isa = PBXGroup;
+			children = (
+				A3CDF49E22F62D65002ECFBA /* JanitorialEngine.swift */,
+				A3CDF4A222F64016002ECFBA /* Directory Analysis.swift */,
+				A3CDF4A622F64576002ECFBA /* AnnotatedFile.swift */,
+			);
+			path = "Janitorial Engine";
+			sourceTree = "<group>";
+		};
 		A3D4792522E2498600F83308 /* Serialization */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,20 +219,6 @@
 				A31C007922EBC2D6008B4582 /* JSON utilties.swift */,
 			);
 			path = Serialization;
-			sourceTree = "<group>";
-		};
-		A3D4792C22E2582800F83308 /* Units */ = {
-			isa = PBXGroup;
-			children = (
-				A31C005922EB6429008B4582 /* Measurement Unit Framework */,
-				A39E571D22EABF2200B416C4 /* MeasurementUnit.swift */,
-				A39E571F22EAC08900B416C4 /* Measurement.swift */,
-				A31C005722EADBE0008B4582 /* DurationMeasurementUnit.swift */,
-				A3D4792F22E2582800F83308 /* Unit Conversion.swift */,
-				A3D4792D22E2582800F83308 /* Age.swift */,
-				A3D4792E22E2582800F83308 /* DataSize.swift */,
-			);
-			path = Units;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,20 +330,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A35ECE6522F662C50057B449 /* Bool Extensions.swift in Sources */,
 				A31C007422EB6D53008B4582 /* PluralizableString.swift in Sources */,
 				A3C1569322EE9177009A3314 /* Semantic Typealiases.swift in Sources */,
 				A3D4792822E2499400F83308 /* UserDefault.swift in Sources */,
-				A31C007C22EBD911008B4582 /* TrackedDirectory+SwiftUI.swift in Sources */,
 				A3D4793222E2594F00F83308 /* Age.swift in Sources */,
 				A39E572022EAC08900B416C4 /* Measurement.swift in Sources */,
 				A3C1569722EFE343009A3314 /* BoundPointer.swift in Sources */,
+				A3CDF4A722F64576002ECFBA /* AnnotatedFile.swift in Sources */,
 				A3D4791C22E223F700F83308 /* TrackedDirectory.swift in Sources */,
+				A3CDF4A522F64093002ECFBA /* URL Extensions.swift in Sources */,
 				A384846622ED9A460012113E /* Array Extensions.swift in Sources */,
 				A31C007E22EBD98E008B4582 /* UserPreferences+SwiftUI.swift in Sources */,
 				A3F3784322E11FCE00642A90 /* URL Operators.swift in Sources */,
+				A3CDF49F22F62D65002ECFBA /* JanitorialEngine.swift in Sources */,
 				A39E571E22EABF2200B416C4 /* MeasurementUnit.swift in Sources */,
+				A3CDF4A322F64016002ECFBA /* Directory Analysis.swift in Sources */,
+				A39EC54622F6D91A00D8015F /* Callback Return Type.swift in Sources */,
 				A31C007622EB7318008B4582 /* Indexed Higher-Order Functions.swift in Sources */,
 				A3D4792922E24EA300F83308 /* UserPreferences.swift in Sources */,
+				A39EC54822F6E14500D8015F /* Generator.swift in Sources */,
 				A31C007A22EBC2D7008B4582 /* JSON utilties.swift in Sources */,
 				A31C005822EADBE0008B4582 /* DurationMeasurementUnit.swift in Sources */,
 				A3D4793122E2594C00F83308 /* DataSize.swift in Sources */,
@@ -321,6 +358,7 @@
 				A31C005E22EB6446008B4582 /* BinaryDataUnit.swift in Sources */,
 				A3F3784122E11E1E00642A90 /* URL Constants.swift in Sources */,
 				A3C1569522EEA14B009A3314 /* Pointer.swift in Sources */,
+				A3CDF4A122F631CC002ECFBA /* Black Holes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,17 +12,17 @@ import SwiftUI
 
 /// A hybrid of a SwiftUI `Binding` and a JanitorKit `Pointer`
 @propertyWrapper
-public struct BoundPointer<Pointee> {
+public struct BoundPointer<Value>: DynamicProperty/*, BindingConvertible*/ {
     
     @Pointer
-    private var internalPointer_onlySetOrGetWithBinding: Pointee
+    private var internalPointer_onlySetOrGetWithBinding: Value
     
-    public var wrappedValue: Pointee {
+    public var wrappedValue: Value {
         get { binding.value }
         nonmutating set { binding.value = newValue }
     }
     
-    public private(set) var binding: Binding<Pointee>
+    public private(set) var binding: Binding<Value>
     
     public var didSet: OnValueDidChange {
         get { _internalPointer_onlySetOrGetWithBinding.onPointeeDidChange }
@@ -30,30 +30,29 @@ public struct BoundPointer<Pointee> {
     }
     
     
-    public init(initialValue: Pointee/*, didSet: @escaping OnValueDidChange*/) {
-        self._internalPointer_onlySetOrGetWithBinding = *initialValue
+    public init(wrappedValue: Value/*, didSet: @escaping OnValueDidChange = { _ in }*/) {
+        self._internalPointer_onlySetOrGetWithBinding = *wrappedValue
 
-        self.binding = .constant(initialValue)
+        self.binding = .constant(wrappedValue)
         self.binding = Binding(
-            getValue: self.getValueForBinding,
-            setValue: self.setValueFromBinding
+            get: self.getValueForBinding,
+            set: self.setValueFromBinding
         )
 
-//        self._internalPointer_onlySetOrGetWithBinding.didSet = didSet
-//        /* UNDO: */self.wrappedValue = initialValue
+//        self._internalPointer_onlySetOrGetWithBinding.onPointeeDidChange = didSet
     }
     
     
-    private nonmutating func getValueForBinding() -> Pointee {
+    private nonmutating func getValueForBinding() -> Value {
         return internalPointer_onlySetOrGetWithBinding
     }
 
 
-    private nonmutating func setValueFromBinding(to newValue: Pointee) {
+    private nonmutating func setValueFromBinding(to newValue: Value) {
         internalPointer_onlySetOrGetWithBinding = newValue
     }
     
     
     
-    public typealias OnValueDidChange = Pointer<Pointee>.OnPointeeDidChange
+    public typealias OnValueDidChange = Pointer<Value>.OnPointeeDidChange
 }

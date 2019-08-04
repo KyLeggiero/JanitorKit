@@ -15,7 +15,7 @@ public typealias Age = Measurement<DurationMeasurementUnit>
 
 
 
-// MARK: - Foundation Extensions
+// MARK: - CaseIterable
 
 extension DurationMeasurementUnit: CaseIterable {
     
@@ -36,7 +36,7 @@ extension DurationMeasurementUnit: CaseIterable {
         .picosecond,
     ]
     
-    public static let casesLargerThanSeconds: AllCases = [
+    public static let commonFileAgeCases: AllCases = [
         .year,
         .week,
         .day,
@@ -46,6 +46,8 @@ extension DurationMeasurementUnit: CaseIterable {
 }
 
 
+
+// MARK: - Stdlib Extensions
 
 public extension BinaryFloatingPoint {
     var years:        Age { Age(value: Age.Value(self), unit: .year) }

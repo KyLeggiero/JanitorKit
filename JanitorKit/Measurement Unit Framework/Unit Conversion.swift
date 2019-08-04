@@ -11,7 +11,7 @@ import Foundation
 
 
 /// Anything which has a value which is dependent on a unit for context
-public protocol UnitDependent: HasBaseUnit where Unit: MeasurementUnit {
+public protocol UnitDependent: HasBaseUnit, Comparable where Unit: MeasurementUnit {
     
     /// The raw value, in the context of the unit
     var value: Value { get }
@@ -32,7 +32,7 @@ public extension UnitDependent {
 
 
 
-// MARK: -
+// MARK: - SimpleInitializableUnitDependent
 
 /// Any `UnitDependent` which can be simply initialized using solely a value and a unit
 public protocol SimpleInitializableUnitDependent: UnitDependent, ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
@@ -80,7 +80,21 @@ public extension SimpleInitializableUnitDependent {
 
 
 
-// MARK: -
+public extension SimpleInitializableUnitDependent where Self: HasBaseUnit {
+    
+    func convert(value: Value, to other: Self) -> Value {
+        return other.unit.convertFromBase(value: unit.convertToBase(value: value))
+    }
+    
+    
+    var convertingToBase: Measurement<Unit> {
+        return Measurement(value: unit.convertToBase(value: value), unit: Unit.base)
+    }
+}
+
+
+
+// MARK: - HasBaseUnit
 
 public protocol HasBaseUnit {
 
@@ -93,7 +107,11 @@ public protocol HasBaseUnit {
 
 
 
-// MARK: - Conformance
+// MARK: - Comparable
 
-extension Measurement: SimpleInitializableUnitDependent {
+extension UnitDependent where Self: SimpleInitializableUnitDependent {
+    
+    public static func < (lhs: Self, rhs: Self) -> Bool {
+        return lhs.convertingToBase.value < rhs.convertingToBase.value
+    }
 }

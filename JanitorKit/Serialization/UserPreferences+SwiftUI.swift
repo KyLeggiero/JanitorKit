@@ -20,19 +20,19 @@ public extension UserPreferences {
 
 public extension UserPreferences.Bindings {
     static let trackedDirectories = Inout<[TrackedDirectory]>(
-        getValue: {
+        get: {
             return UserPreferences.trackedDirectories
         },
-        setValue: { newTrackedDirectories in
+        set: { newTrackedDirectories in
             UserPreferences.trackedDirectories = newTrackedDirectories
         }
     )
 
     static let checkingDelay = Inout<Age>(
-        getValue: {
+        get: {
             return UserPreferences.checkingDelay
         },
-        setValue: { newCheckingDelay in
+        set: { newCheckingDelay in
             UserPreferences.checkingDelay = newCheckingDelay
         }
     )

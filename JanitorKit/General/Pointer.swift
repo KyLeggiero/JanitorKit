@@ -31,8 +31,8 @@ public class Pointer<Pointee> {
     }
     
     
-    public convenience init(initialValue: Pointee, onPointeeDidChange: @escaping OnPointeeDidChange = { _ in }) {
-        self.init(pointee: initialValue, onPointeeDidChange: onPointeeDidChange)
+    public convenience init(wrappedValue: Pointee, onPointeeDidChange: @escaping OnPointeeDidChange = { _ in }) {
+        self.init(pointee: wrappedValue, onPointeeDidChange: onPointeeDidChange)
     }
     
     

@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - MeasurementUnit
 
-public protocol MeasurementUnit: IdentifiableOnlyIfUsingSwiftUI {
+public protocol MeasurementUnit: IdentifiableOnlyIfUsingSwiftUI, CaseIterable where AllCases: RandomAccessCollection {
 
     static var base: Self { get }
     
@@ -28,11 +28,6 @@ public protocol MeasurementUnit: IdentifiableOnlyIfUsingSwiftUI {
 
 public extension MeasurementUnit {
     typealias Value = CGFloat.NativeType
-    
-    
-    func convert(value: Value, to other: Self) -> Value {
-        return other.convertFromBase(value: convertToBase(value: value))
-    }
 }
 
 

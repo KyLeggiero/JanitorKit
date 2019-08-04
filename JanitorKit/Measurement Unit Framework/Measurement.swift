@@ -31,18 +31,13 @@ public extension Measurement {
     
     
     init(converting measurement: Measurement<Unit>, to newUnit: Unit) {
-        self.init(value: measurement.unit.convert(value: measurement.value, to: newUnit), unit: newUnit)
-    }
-    
-    
-    var convertingToBase: Measurement<Unit> {
-        return Measurement(value: unit.convertToBase(value: value), unit: Unit.base)
+        self = measurement.convert(to: newUnit)
     }
 }
 
 
 
-// MARK: - Conformance
+// MARK: - General Conformance
 
 extension Measurement: Equatable {}
 extension Measurement: Hashable {}
@@ -54,4 +49,11 @@ extension Measurement: CustomStringConvertible {
     public var description: String {
         return "\(value) \(unit.name.text(for: value))"
     }
+}
+
+
+
+// MARK: - SimpleInitializableUnitDependent
+
+extension Measurement: SimpleInitializableUnitDependent {
 }

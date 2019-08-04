@@ -15,7 +15,7 @@ public typealias DataSize = Measurement<BinaryDataUnit>
 
 
 
-// MARK: - Foundation Extensions
+// MARK: - CaseIterable
 
 extension BinaryDataUnit: CaseIterable {
     
@@ -65,9 +65,27 @@ extension BinaryDataUnit: CaseIterable {
         .mebibit,
         .kibibit,
     ]
+    
+    
+    public static let commonFileSizeCases: AllCases = [
+        .kibibyte,
+        .mebibyte,
+        .gibibyte,
+        .tebibyte
+    ]
+    
+    
+    public static let commonSIFileSizeCases: AllCases = [
+        .kilobyte,
+        .megabyte,
+        .gigabyte,
+        .terabyte
+    ]
 }
 
 
+
+// MARK: - Stdlib Extensions
 
 public extension BinaryFloatingPoint {
     var bytes:      DataSize { DataSize(value: DataSize.Value(self), unit: .byte) }
