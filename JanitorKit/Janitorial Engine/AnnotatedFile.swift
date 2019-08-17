@@ -29,11 +29,24 @@ public extension AnnotatedFile {
     init?(_ url: URL, fileManager: FileManager = .default) {
         do {
             let attributes = try fileManager.attributesOfItem(atPath: url.actualPath)
-            let size = attributes[.size]
-            let age = attributes[.userSpecifiedAge]
+            
+            guard let sizeInBytes = attributes[.size] as? UInt else {
+                return nil
+            }
+            let size = DataSize(value: sizeInBytes, unit: .byte)
+            
+            guard let age = url.userSpecifiedAge(using: attributes) else {
+                return nil
+            }
+            
+            self.init(url: url, size: size, age: age)
         }
         catch {
             return nil
         }
     }
 }
+
+
+
+extension AnnotatedFile: Hashable { }

@@ -11,21 +11,55 @@ import Foundation
 
 
 internal extension TrackedDirectory {
-    var filesThatShouldBeDeleted: [URL] {
+    var filesThatShouldBeDeleted: Set<URL> {
         get {
             filesThathouldFileBeDeleted(in:
                 url
                     .allChildren()
-                    .annotatedAndSortedByDate()
+                    .annotatedAndSortedWithOldestAtStart()
                 )
-                .map { $0.url }
+                .mapToSet { $0.url }
         }
     }
     
     
-    private func filesThathouldFileBeDeleted(in annotatedSortedFiles: [AnnotatedFile]) -> [AnnotatedFile] {
-        let oldFiles = annotatedSortedFiles.suffix(while: { annotatedFile in
-            annotatedFile.age > self.oldestAllowedAge
-        })
+    private func filesThathouldFileBeDeleted(in annotatedSortedFiles: [AnnotatedFile]) -> Set<AnnotatedFile> { // TODO: Test
+        
+        let totalSize = annotatedSortedFiles
+            .lazy
+            .map { $0.size }
+            .reduce(into: .zero, +=)
+        
+        var cleanedSizeSoFar = DataSize.zero
+        
+        var sizeAfterCleaning: DataSize {
+            return totalSize - cleanedSizeSoFar
+        }
+        
+        let oldFiles = Set(annotatedSortedFiles
+            .suffix(while: { annotatedFile in
+                let shouldClean = annotatedFile.age > self.oldestAllowedAge
+                if shouldClean {
+                    cleanedSizeSoFar += annotatedFile.size
+                }
+                return shouldClean
+            })
+        )
+        
+        if sizeAfterCleaning < largestAllowedTotalSize {
+            return oldFiles
+        }
+        else {
+            let bigFiles = Set(annotatedSortedFiles
+                .lazy
+                .filter { !oldFiles.contains($0) }
+                .suffix(while: { annotatedFile in
+                    cleanedSizeSoFar += annotatedFile.size
+                    return sizeAfterCleaning < largestAllowedTotalSize
+                })
+            )
+            
+            return oldFiles + bigFiles
+        }
     }
 }

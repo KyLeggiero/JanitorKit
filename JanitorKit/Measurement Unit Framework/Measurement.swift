@@ -33,6 +33,34 @@ public extension Measurement {
     init(converting measurement: Measurement<Unit>, to newUnit: Unit) {
         self = measurement.convert(to: newUnit)
     }
+    
+    
+    static var zero: Measurement<Unit> { 0 }
+}
+
+
+
+extension Measurement: AdditiveArithmetic {
+    public static func + (lhs: Measurement<Unit>, rhs: Measurement<Unit>) -> Measurement<Unit> {
+        return Measurement(value: lhs.convertingToBase.value + rhs.convertingToBase.value,
+                           unit: .base)
+    }
+    
+    
+    public static func += (lhs: inout Measurement<Unit>, rhs: Measurement<Unit>) {
+        lhs = lhs + rhs
+    }
+    
+    
+    public static func - (lhs: Measurement<Unit>, rhs: Measurement<Unit>) -> Measurement<Unit> {
+        return Measurement(value: lhs.convertingToBase.value - rhs.convertingToBase.value,
+                           unit: .base)
+    }
+    
+    
+    public static func -= (lhs: inout Measurement<Unit>, rhs: Measurement<Unit>) {
+        lhs = lhs - rhs
+    }
 }
 
 

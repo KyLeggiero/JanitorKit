@@ -183,7 +183,6 @@ public extension URL {
 
 
 
-
 public extension URL {
     
     /// Attempts to delete this file
@@ -207,10 +206,10 @@ public extension URL {
                 case .trashing:
                     try fileManager.trashItem(at: self, resultingItemURL: nil)
                 }
-                return callback(.success)
+                return <-callback(.success)
             }
             catch {
-                return callback(.otherFailure(error: error))
+                return <-callback(.otherFailure(error: error))
             }
         }
         
@@ -284,41 +283,44 @@ public extension Collection where Element == URL {
                    on queueGenerator: @escaping JanitorKit.Generator<DispatchQueue> = { .newDeleteQueue() },
                    andThen callback: @escaping BatchDeleteCallback) -> ReturnsViaCallback {
         var numberOfCompletedDeleteAttempts: UInt = 0
-        var failureCauses = [Error]()
+        var failures = Set<DeletionFailure>()
+        var successfulDeletions = Set<URL>()
         let completionProcessingQueue = DispatchQueue(label: "Deletion Completion Processor \(UUID())", qos: .userInteractive)
         
-        func onEachDeleted(result: URL.DeleteResult) -> CallbackReturnType {
+        func onEachDeleted(url: URL, result: URL.DeleteResult) -> CallbackReturnType {
             completionProcessingQueue.sync {
                 numberOfCompletedDeleteAttempts += 1
                 
                 switch result {
                 case .success:
-                    return
+                    break
                     
                 case .lackOfPermissions:
-                    failureCauses.append(LackOfPermissionsError())
+                    failures.insert(.init(url: url, error: LackOfPermissionsError()))
                     
                 case .otherFailure(let error):
-                    failureCauses.append(error)
+                    failures.insert(.init(url: url, error: error))
                 }
                 
                 if numberOfCompletedDeleteAttempts >= count {
-                    if failureCauses.isEmpty {
-                        callback(.allSuccess)
+                    if failures.isEmpty {
+                        return callback(.allSuccess)
                     }
-                    else if failureCauses.count >= numberOfCompletedDeleteAttempts {
-                        callback(.allFailed(errors: failureCauses))
+                    else if failures.count >= numberOfCompletedDeleteAttempts {
+                        return callback(.allFailed(errors: failures))
                     }
                     else {
-                        callback(.mixed(successCount: numberOfCompletedDeleteAttempts - UInt(failureCauses.count),
-                                        remainingErrors: failureCauses))
+                        return callback(.mixed(successfullyDeletedFiles: successfulDeletions,
+                                               remainingErrors: failures))
                     }
                 }
             }
         }
         
         forEach { url in
-            url.delete(by: approach, using: fileManager, on: queueGenerator(), andThen: onEachDeleted)
+            url.delete(by: approach, using: fileManager, on: queueGenerator()) { deleteResult in
+                onEachDeleted(url: url, result: deleteResult)
+            }
         }
         
         return .willReturnFromUntypedContext
@@ -333,10 +335,27 @@ public extension Collection where Element == URL {
 
 
 
+public struct DeletionFailure: Error, Hashable {
+    public let url: URL
+    public let error: Error
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(url)
+        hasher.combine(bytes: withUnsafeBytes(of: error, echo))
+    }
+    
+    
+    public static func ==(lhs: DeletionFailure, rhs: DeletionFailure) -> Bool {
+        return lhs.url == rhs.url
+    }
+}
+
+
+
 public enum BatchDeleteResult {
     case allSuccess
-    case mixed(successCount: UInt, remainingErrors: [Error])
-    case allFailed(errors: [Error])
+    case mixed(successfullyDeletedFiles: Set<URL>, remainingErrors: Set<DeletionFailure>)
+    case allFailed(errors: Set<DeletionFailure>)
 }
 
 

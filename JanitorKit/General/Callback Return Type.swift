@@ -21,15 +21,33 @@ public enum ReturnsViaCallback {
     /// this is because it will be called from some external function which doesn't follow this pattern of having a
     /// special callback return type.
     case willReturnFromUntypedContext
+    
+    /// Signifies that you already called the callback and you can now safely return from the function
+    case alreadyCalledCallbackInThisContext
+    
+    /// Signifies that you purposefulyl chose to never call the
+    /// - Attention: callback. Make sure that this possibility is documented
+    case purposefullyOptedToNeverCallCallback
 }
 
 
 
 /// The return type used by callback blocks
-public typealias CallbackReturnType = Void
+public typealias CallbackReturnType = ReturnsViaCallback
 
 
 
 public typealias BlindCallback = () -> CallbackReturnType
 public typealias Callback<Result> = (Result) -> CallbackReturnType
+public typealias Callback2<ResultA, ResultB> = (ResultA, ResultB) -> CallbackReturnType
 public typealias ChainedCallback<UltimateResult> = (Callback<UltimateResult>) -> ReturnsViaCallback
+
+
+
+prefix operator <-
+
+
+
+/// Signifies that you acknowledge that you are performing the final return with the callback, but the function returns void
+@inlinable
+public prefix func <- (_: CallbackReturnType) -> Void {}

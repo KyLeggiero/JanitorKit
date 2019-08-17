@@ -20,9 +20,21 @@ private func blackholeImplementation(_ unwantedValue: Any?...) {
 }
 
 
+private func blackholeImplementation(_ unwantedValue: Any?...) -> ReturnsViaCallback {
+    blackholeValue = unwantedValue
+    return .purposefullyOptedToNeverCallCallback
+}
 
-public func blackhole() { blackholeImplementation(()) }
-public func blackhole<A>(_ a: A) { blackholeImplementation(a) }
-public func blackhole<A, B>(_ a: A, _ b: B) { blackholeImplementation(a, b) }
-public func blackhole<A, B, C>(_ a: A, _ b: B, _ c: C) { blackholeImplementation(a, b, c) }
-public func blackhole<A, B, C, D>(_ a: A, _ b: B, _ c: C, _ d: D) { blackholeImplementation(a, b, c, d) }
+
+
+public func blackhole() { return blackholeImplementation(()) }
+public func blackhole<A>(_ a: A) { return blackholeImplementation(a) }
+public func blackhole<A, B>(_ a: A, _ b: B) { return blackholeImplementation(a, b) }
+public func blackhole<A, B, C>(_ a: A, _ b: B, _ c: C) { return blackholeImplementation(a, b, c) }
+public func blackhole<A, B, C, D>(_ a: A, _ b: B, _ c: C, _ d: D) { return blackholeImplementation(a, b, c, d) }
+
+public func blackhole() -> ReturnsViaCallback { blackholeImplementation(()) }
+public func blackhole<A>(_ a: A) -> ReturnsViaCallback { blackholeImplementation(a) }
+public func blackhole<A, B>(_ a: A, _ b: B) -> ReturnsViaCallback { blackholeImplementation(a, b) }
+public func blackhole<A, B, C>(_ a: A, _ b: B, _ c: C) -> ReturnsViaCallback { blackholeImplementation(a, b, c) }
+public func blackhole<A, B, C, D>(_ a: A, _ b: B, _ c: C, _ d: D) -> ReturnsViaCallback { blackholeImplementation(a, b, c, d) }
