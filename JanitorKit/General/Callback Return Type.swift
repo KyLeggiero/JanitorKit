@@ -25,9 +25,13 @@ public enum ReturnsViaCallback {
     /// Signifies that you already called the callback and you can now safely return from the function
     case alreadyCalledCallbackInThisContext
     
-    /// Signifies that you purposefulyl chose to never call the
-    /// - Attention: callback. Make sure that this possibility is documented
+    /// Signifies that you purposefulyl chose to never call the callback.
+    /// - Attention: Make sure that this possibility is documented
     case purposefullyOptedToNeverCallCallback
+    
+    /// Signifies that you are iterating over some items, and will eventually call the callback, but not on this
+    /// particular iteration as this won't be the final one.
+    case willCallCallbackOnALaterIteration
 }
 
 

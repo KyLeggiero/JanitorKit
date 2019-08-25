@@ -17,7 +17,6 @@
 		A3313E7D22FA7E1E00E52342 /* Prefab Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3313E7C22FA7E1E00E52342 /* Prefab Functions.swift */; };
 		A35ECE6522F662C50057B449 /* Bool Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35ECE6422F662C50057B449 /* Bool Extensions.swift */; };
 		A370A03822DFE7820097FFAD /* JanitorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A370A02E22DFE7820097FFAD /* JanitorKit.framework */; };
-		A370A03D22DFE7820097FFAD /* JanitorKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A370A03C22DFE7820097FFAD /* JanitorKitTests.swift */; };
 		A38014122307D4BB0063D5D3 /* Collection Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38014112307D4BB0063D5D3 /* Collection Extensions.swift */; };
 		A38014142307E3030063D5D3 /* Set Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38014132307E3030063D5D3 /* Set Extensions.swift */; };
 		A384846622ED9A460012113E /* Array Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384846522ED9A460012113E /* Array Extensions.swift */; };
@@ -67,7 +66,6 @@
 		A370A02E22DFE7820097FFAD /* JanitorKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JanitorKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A370A03222DFE7820097FFAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A370A03722DFE7820097FFAD /* JanitorKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JanitorKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A370A03C22DFE7820097FFAD /* JanitorKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JanitorKitTests.swift; sourceTree = "<group>"; };
 		A370A03E22DFE7820097FFAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A38014112307D4BB0063D5D3 /* Collection Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection Extensions.swift"; sourceTree = "<group>"; };
 		A38014132307E3030063D5D3 /* Set Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set Extensions.swift"; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				A3D4792A22E2577100F83308 /* AgeTests.swift */,
-				A370A03C22DFE7820097FFAD /* JanitorKitTests.swift */,
 				A370A03E22DFE7820097FFAD /* Info.plist */,
 			);
 			path = JanitorKitTests;
@@ -378,7 +375,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A370A03D22DFE7820097FFAD /* JanitorKitTests.swift in Sources */,
 				A3D4792B22E2577100F83308 /* AgeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

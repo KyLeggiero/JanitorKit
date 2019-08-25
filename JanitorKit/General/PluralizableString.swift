@@ -147,7 +147,7 @@ public extension PluralizableString {
     }
     
     
-    func text<Amount: BinaryFloatingPoint>(for amount: Amount) -> String {
+    func text<Amount: BinaryFloatingPoint>(whenAmountIs amount: Amount) -> String {
         return text(for: Int(amount.rounded()))
     }
 }

@@ -43,12 +43,12 @@ public protocol LinearMeasurementUnit: MeasurementUnit {
 public extension LinearMeasurementUnit {
     
     func convertToBase(value: Value) -> Value {
-        return value / coefficient
+        return value * coefficient
     }
     
     
     func convertFromBase(value: Value) -> Value {
-        return value * coefficient
+        return value / coefficient
     }
 }
 

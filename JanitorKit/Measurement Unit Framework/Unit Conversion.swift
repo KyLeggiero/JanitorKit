@@ -44,13 +44,15 @@ public protocol SimpleInitializableUnitDependent: UnitDependent, ExpressibleByFl
 public extension SimpleInitializableUnitDependent {
     
     init(converting other: Self, to newUnit: Self.Unit) {
-        self = other.convert(to: newUnit)
+        self = other.converted(to: newUnit)
     }
     
     
     /// Converts this value in its unit to a new value in the given other unit
-    func convert(to otherUnit: Self.Unit) -> Self {
-        return Self.init(value: unit.convert(value: self.value, to: otherUnit), unit: otherUnit)
+    func converted(to otherUnit: Self.Unit) -> Self {
+        let selfBaseValue = self.unit.convertToBase(value: value)
+        let otherValue = otherUnit.convertFromBase(value: selfBaseValue)
+        return Self.init(value: otherValue, unit: otherUnit)
     }
 }
 
@@ -82,7 +84,7 @@ public extension SimpleInitializableUnitDependent {
 
 public extension SimpleInitializableUnitDependent where Self: HasBaseUnit {
     
-    func convert(value: Value, to other: Self) -> Value {
+    func converted(to other: Self) -> Value {
         return other.unit.convertFromBase(value: unit.convertToBase(value: value))
     }
     

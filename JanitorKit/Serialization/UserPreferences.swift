@@ -21,7 +21,11 @@ public extension UserPreferences {
     static var trackedDirectories = [
         TrackedDirectory(uuid: UUID(), isEnabled: false, url: URL.User.downloads!, oldestAllowedAge: 30.days, largestAllowedTotalSize: 1.gibibytes),
         TrackedDirectory(uuid: UUID(), isEnabled: false, url: URL.User.desktop!, oldestAllowedAge: 90.days, largestAllowedTotalSize: 5.gibibytes),
-    ]
+        ] {
+        didSet {
+            onTrackedDirectoriesDidChange()
+        }
+    }
     
     @UserDefault("checkingDelay")
     static var checkingDelay = 5.minutes

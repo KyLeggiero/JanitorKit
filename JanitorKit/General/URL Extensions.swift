@@ -314,6 +314,9 @@ public extension Collection where Element == URL {
                                                remainingErrors: failures))
                     }
                 }
+                else {
+                    return .willCallCallbackOnALaterIteration
+                }
             }
         }
         

@@ -31,7 +31,7 @@ public extension Measurement {
     
     
     init(converting measurement: Measurement<Unit>, to newUnit: Unit) {
-        self = measurement.convert(to: newUnit)
+        self = measurement.converted(to: newUnit)
     }
     
     
@@ -75,7 +75,7 @@ extension Measurement: Codable {}
 
 extension Measurement: CustomStringConvertible {
     public var description: String {
-        return "\(value) \(unit.name.text(for: value))"
+        return "\(value) \(unit.name.text(whenAmountIs: value))"
     }
 }
 
