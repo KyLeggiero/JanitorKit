@@ -19,21 +19,26 @@ public extension UserPreferences {
 
 
 public extension UserPreferences.Bindings {
-    static let trackedDirectories = Inout<[TrackedDirectory]>(
-        get: {
-            return UserPreferences.trackedDirectories
-        },
-        set: { newTrackedDirectories in
-            UserPreferences.trackedDirectories = newTrackedDirectories
+    @BoundPointer
+    static var trackedDirectories: [TrackedDirectory] = {
+        defer {
+            UserPreferences.onTrackedDirectoriesDidChange { (newTrackedDirectories) in
+                UserPreferences.Bindings.trackedDirectories = newTrackedDirectories
+                return .thisIsTheTailEndOfTheCallbackChain
+            }
         }
-    )
-
-    static let checkingDelay = Inout<Age>(
-        get: {
-            return UserPreferences.checkingDelay
-        },
-        set: { newCheckingDelay in
-            UserPreferences.checkingDelay = newCheckingDelay
+        return UserPreferences.trackedDirectories
+    }()
+    
+    
+    @BoundPointer
+    static var checkingDelay: Age = {
+        defer {
+            UserPreferences.onCheckingDelayDidChange { (newCheckingDelay) in
+                UserPreferences.Bindings.checkingDelay = newCheckingDelay
+                return .thisIsTheTailEndOfTheCallbackChain
+            }
         }
-    )
+        return UserPreferences.checkingDelay
+    }()
 }

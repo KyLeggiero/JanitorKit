@@ -129,18 +129,15 @@
 		A31C007222EB6D48008B4582 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				A3A409B923147CEA003D4B35 /* Functional */,
 				A384846522ED9A460012113E /* Array Extensions.swift */,
-				A3CDF4A022F631CC002ECFBA /* Black Holes.swift */,
 				A35ECE6422F662C50057B449 /* Bool Extensions.swift */,
 				A3C1569622EFE342009A3314 /* BoundPointer.swift */,
-				A39EC54522F6D91A00D8015F /* Callback Return Type.swift */,
 				A38014112307D4BB0063D5D3 /* Collection Extensions.swift */,
-				A39EC54722F6E14500D8015F /* Generator.swift */,
 				A31C008122EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift */,
 				A31C007522EB7318008B4582 /* Indexed Higher-Order Functions.swift */,
 				A31C007322EB6D53008B4582 /* PluralizableString.swift */,
 				A3C1569422EEA14B009A3314 /* Pointer.swift */,
-				A3313E7C22FA7E1E00E52342 /* Prefab Functions.swift */,
 				A38014132307E3030063D5D3 /* Set Extensions.swift */,
 				A3C1569222EE9177009A3314 /* Semantic Typealiases.swift */,
 				A3F3784022E11E1E00642A90 /* URL Constants.swift */,
@@ -188,6 +185,17 @@
 				A370A03E22DFE7820097FFAD /* Info.plist */,
 			);
 			path = JanitorKitTests;
+			sourceTree = "<group>";
+		};
+		A3A409B923147CEA003D4B35 /* Functional */ = {
+			isa = PBXGroup;
+			children = (
+				A3CDF4A022F631CC002ECFBA /* Black Holes.swift */,
+				A39EC54522F6D91A00D8015F /* Callback Return Type.swift */,
+				A39EC54722F6E14500D8015F /* Generator.swift */,
+				A3313E7C22FA7E1E00E52342 /* Prefab Functions.swift */,
+			);
+			path = Functional;
 			sourceTree = "<group>";
 		};
 		A3CDF49922F62B46002ECFBA /* Janitorial Duties */ = {

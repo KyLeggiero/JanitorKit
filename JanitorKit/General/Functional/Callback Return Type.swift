@@ -32,6 +32,13 @@ public enum ReturnsViaCallback {
     /// Signifies that you are iterating over some items, and will eventually call the callback, but not on this
     /// particular iteration as this won't be the final one.
     case willCallCallbackOnALaterIteration
+    
+    /// Signifies that this is the actual end of the last callback.
+    /// All the work has been done and it's time to pop the stack.
+    ///
+    /// - Attention: Don't call this unless this is the actual end of the chain! If you are instead purposefully
+    ///              deciding to not call some callback, then use another case of this enum.
+    case thisIsTheTailEndOfTheCallbackChain
 }
 
 

@@ -16,6 +16,7 @@ public struct UserDefault<Value>: DynamicProperty where Value: Codable {
     let defaultValue: Value
     let key: String
     let userDefaults: UserDefaults
+    private var observerShim: ObserverShim! = nil
 
     init(wrappedValue: Value, _ key: String, userDefaults: UserDefaults = .standard) {
         self.key = key
@@ -25,6 +26,8 @@ public struct UserDefault<Value>: DynamicProperty where Value: Codable {
         if !isSerialized() {
             setValue(wrappedValue)
         }
+        
+        self.observerShim = ObserverShim(self)
     }
 
     public var wrappedValue: Value {
@@ -66,5 +69,28 @@ public struct UserDefault<Value>: DynamicProperty where Value: Codable {
     private func isSerialized() -> Bool {
         userDefaults.synchronize()
         return nil != userDefaults.string(forKey: key)
+    }
+    
+    
+    private class ObserverShim: NSObject {
+        let parent: Pointer<UserDefault>
+        
+        init(_ parent: UserDefault) {
+            self.parent = *parent
+            
+            super.init()
+            
+            parent.userDefaults.addObserver(self, forKeyPath: parent.key, options: .new, context: nil)
+        }
+        
+        
+        deinit {
+            parent.pointee.userDefaults.removeObserver(self, forKeyPath: parent.pointee.key)
+        }
+        
+        
+        override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+            parent.pointee.update()
+        }
     }
 }

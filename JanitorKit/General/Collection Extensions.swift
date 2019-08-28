@@ -21,6 +21,13 @@ public extension Collection {
         
         return result
     }
+    
+    
+    func forEachIgnoringReturn<Ignored>(_ processor: (Element) throws -> Ignored) rethrows {
+        for element in self {
+            _ = try processor(element)
+        }
+    }
 }
 
 

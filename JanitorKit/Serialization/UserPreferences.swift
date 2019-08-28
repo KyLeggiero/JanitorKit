@@ -23,12 +23,48 @@ public extension UserPreferences {
         TrackedDirectory(uuid: UUID(), isEnabled: false, url: URL.User.desktop!, oldestAllowedAge: 90.days, largestAllowedTotalSize: 5.gibibytes),
         ] {
         didSet {
-            onTrackedDirectoriesDidChange()
+            trackedDirectoryChangeListeners.forEachIgnoringReturn(call(passing: trackedDirectories))
         }
     }
     
+    private static var trackedDirectoryChangeListeners = [OnTrackedDirectoryDidChange]()
+    
+    
+    static func onTrackedDirectoriesDidChange(callback: @escaping OnTrackedDirectoryDidChange) {
+        trackedDirectoryChangeListeners.append(callback)
+    }
+    
+    
+    
+    typealias OnTrackedDirectoryDidChange = Callback<[TrackedDirectory]>
+}
+
+
+
+public extension UserPreferences {
+    
     @UserDefault("checkingDelay")
-    static var checkingDelay = 5.minutes
+    static var checkingDelay = 5.minutes {
+       didSet {
+           checkingDelayChangeListeners.forEachIgnoringReturn(call(passing: checkingDelay))
+       }
+   }
+   
+   private static var checkingDelayChangeListeners = [OnCheckingDelayDidChange]()
+   
+   
+   static func onCheckingDelayDidChange(callback: @escaping OnCheckingDelayDidChange) {
+       checkingDelayChangeListeners.append(callback)
+   }
+   
+   
+   
+   typealias OnCheckingDelayDidChange = Callback<Age>
+}
+
+
+
+public extension UserPreferences {
     
     @UserDefault("whichAgeToRegard")
     static var whichAgeToRegard = WhichAgeToRegard.lastModificationDate
