@@ -20,25 +20,33 @@ public extension UserPreferences {
 
 public extension UserPreferences.Bindings {
     @BoundPointer
-    static var trackedDirectories: [TrackedDirectory] = {
+    private static var trackedDirectoriesBoundPointer: [TrackedDirectory] = {
         defer {
             UserPreferences.onTrackedDirectoriesDidChange { (newTrackedDirectories) in
-                UserPreferences.Bindings.trackedDirectories = newTrackedDirectories
+                UserPreferences.Bindings.trackedDirectoriesBoundPointer = newTrackedDirectories
                 return .thisIsTheTailEndOfTheCallbackChain
             }
         }
         return UserPreferences.trackedDirectories
     }()
     
+    static var trackedDirectories: Binding<[TrackedDirectory]> {
+        _trackedDirectoriesBoundPointer.binding
+    }
+    
     
     @BoundPointer
-    static var checkingDelay: Age = {
+    private static var checkingDelayBoundPointer: Age = {
         defer {
             UserPreferences.onCheckingDelayDidChange { (newCheckingDelay) in
-                UserPreferences.Bindings.checkingDelay = newCheckingDelay
+                UserPreferences.Bindings.checkingDelayBoundPointer = newCheckingDelay
                 return .thisIsTheTailEndOfTheCallbackChain
             }
         }
         return UserPreferences.checkingDelay
     }()
+    
+    static var checkingDelay: Binding<Age> {
+        _checkingDelayBoundPointer.binding
+    }
 }

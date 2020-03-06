@@ -15,5 +15,5 @@ import SwiftUI
 
 
 
-public typealias Inout = SwiftUI.Binding
+//public typealias Binding = SwiftUI.Binding
 #endif

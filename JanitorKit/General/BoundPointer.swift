@@ -18,8 +18,8 @@ public struct BoundPointer<Value>: DynamicProperty/*, BindingConvertible*/ {
     private var internalPointer_onlySetOrGetWithBinding: Value
     
     public var wrappedValue: Value {
-        get { binding.value }
-        nonmutating set { binding.value = newValue }
+        get { binding.wrappedValue }
+        nonmutating set { binding.wrappedValue = newValue }
     }
     
     public private(set) var binding: Binding<Value>

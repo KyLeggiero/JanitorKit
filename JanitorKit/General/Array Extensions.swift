@@ -7,10 +7,16 @@
 //
 
 import SwiftUI
+import PropertyWrapper_Protocol
 
 
 
 public extension Array where Element: Identifiable {
+    
+    subscript(_ id: Element.ID) -> Element? {
+        self.firstIndex(ofElementWithId: id).map { self[$0] }
+    }
+    
     
     func firstIndex(ofElementWithId needleId: Element.ID) -> Index? {
         return firstIndex(where: { $0.id == needleId })
@@ -31,7 +37,7 @@ public extension Array where Element: Identifiable {
     
     
     @discardableResult
-    mutating func remove(firstElementWithId itemId: Element.ID) -> RemoveResult? {
+    mutating func remove(firstElementWithId itemId: Element.ID) -> RemoveResult<Element>? {
         if let itemIndex = firstIndex(ofElementWithId: itemId) {
             let removedElement = remove(at: itemIndex)
             return .removedSuccessfully(removedElement: removedElement)
@@ -40,18 +46,49 @@ public extension Array where Element: Identifiable {
             return .noSuchElementFound
         }
     }
+}
+
+
+
+public extension Array where Element: PropertyWrapper, Element.WrappedValue: Identifiable {
     
     
-    
-    enum ReplaceOrAppendResult {
-        case didReplace
-        case didAppend
+    func firstIndex(ofElementWithId needleId: Element.WrappedValue.ID) -> Index? {
+        return firstIndex(where: { $0.wrappedValue.id == needleId })
     }
     
+}
+
+
+
+public extension Array where Element: MutablePropertyWrapper, Element.WrappedValue: Identifiable {
     
-    
-    enum RemoveResult {
-        case noSuchElementFound
-        case removedSuccessfully(removedElement: Element)
+    @discardableResult
+    mutating func replaceOrAppend(value changedOrNewValue: Element.WrappedValue,
+                                  newPropertyGenerator: (_ newValue: Element.WrappedValue) throws -> Element
+    ) rethrows -> ReplaceOrAppendResult {
+        
+        if let index = firstIndex(ofElementWithId: changedOrNewValue.id) {
+            self[index].wrappedValue = changedOrNewValue
+            return .didReplace
+        }
+        else {
+            self.append(try newPropertyGenerator(changedOrNewValue))
+            return .didAppend
+        }
     }
+}
+
+
+
+public enum ReplaceOrAppendResult {
+    case didReplace
+    case didAppend
+}
+
+
+
+public enum RemoveResult<Element> {
+    case noSuchElementFound
+    case removedSuccessfully(removedElement: Element)
 }

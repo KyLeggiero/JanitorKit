@@ -17,19 +17,21 @@ public struct UserDefault<Value>: DynamicProperty where Value: Codable {
     let key: String
     let userDefaults: UserDefaults
     private var observerShim: ObserverShim! = nil
-
-    init(wrappedValue: Value, _ key: String, userDefaults: UserDefaults = .standard) {
+    
+    
+    init(wrappedValue defaultValue: Value, _ key: String, userDefaults: UserDefaults = .standard) {
         self.key = key
-        self.defaultValue = wrappedValue
+        self.defaultValue = defaultValue
         self.userDefaults = userDefaults
         
         if !isSerialized() {
-            setValue(wrappedValue)
+            setValue(defaultValue)
         }
         
-        self.observerShim = ObserverShim(self)
+        self.observerShim = ObserverShim(*self)
     }
-
+    
+    
     public var wrappedValue: Value {
         get {
             return value()
@@ -42,8 +44,7 @@ public struct UserDefault<Value>: DynamicProperty where Value: Codable {
     
     private func setValue(_ newValue: Value) {
         guard let newString = try? newValue.jsonString() else {
-            print("Could not create JSON string out of the new value; preserving existing defaults")
-            assertionFailure()
+            assertionFailure("Could not create JSON string out of the new value; preserving existing defaults")
             return
         }
         userDefaults.set(newString, forKey: key)
@@ -54,8 +55,7 @@ public struct UserDefault<Value>: DynamicProperty where Value: Codable {
     private func value() -> Value {
         if let existingValueString = userDefaults.string(forKey: key) {
             guard let existingValue = try? Value(jsonString: existingValueString) else {
-                print("Could not parse JSON string out of the existing value; returning nil")
-                assertionFailure()
+                assertionFailure("Could not parse JSON string out of the existing value; returning nil")
                 return defaultValue
             }
             return existingValue
@@ -72,15 +72,16 @@ public struct UserDefault<Value>: DynamicProperty where Value: Codable {
     }
     
     
+    
     private class ObserverShim: NSObject {
         let parent: Pointer<UserDefault>
         
-        init(_ parent: UserDefault) {
-            self.parent = *parent
+        init(_ parent: Pointer<UserDefault>) {
+            self.parent = parent
             
             super.init()
             
-            parent.userDefaults.addObserver(self, forKeyPath: parent.key, options: .new, context: nil)
+            parent.pointee.userDefaults.addObserver(self, forKeyPath: parent.pointee.key, options: .new, context: nil)
         }
         
         
@@ -89,7 +90,7 @@ public struct UserDefault<Value>: DynamicProperty where Value: Codable {
         }
         
         
-        override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        override func observeValue(forKeyPath _: String?, of _: Any?, change _: [NSKeyValueChangeKey : Any]?, context _: UnsafeMutableRawPointer?) {
             parent.pointee.update()
         }
     }

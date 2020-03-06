@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30CA206233889EB0027128F /* PropertyWrapper Protocol in Frameworks */ = {isa = PBXBuildFile; productRef = A30CA205233889EB0027128F /* PropertyWrapper Protocol */; };
 		A31C005822EADBE0008B4582 /* DurationMeasurementUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C005722EADBE0008B4582 /* DurationMeasurementUnit.swift */; };
 		A31C005E22EB6446008B4582 /* BinaryDataUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C005D22EB6446008B4582 /* BinaryDataUnit.swift */; };
 		A31C007422EB6D53008B4582 /* PluralizableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007322EB6D53008B4582 /* PluralizableString.swift */; };
@@ -14,6 +15,8 @@
 		A31C007A22EBC2D7008B4582 /* JSON utilties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007922EBC2D6008B4582 /* JSON utilties.swift */; };
 		A31C007E22EBD98E008B4582 /* UserPreferences+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C007D22EBD98E008B4582 /* UserPreferences+SwiftUI.swift */; };
 		A31C008222EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31C008122EBDF0D008B4582 /* IdentifiableOnlyIfUsingSwiftUI.swift */; };
+		A32376DD231B4AEC006D9749 /* LazyContainers in Frameworks */ = {isa = PBXBuildFile; productRef = A32376DC231B4AEC006D9749 /* LazyContainers */; };
+		A32376E0231B4B12006D9749 /* SafePointer in Frameworks */ = {isa = PBXBuildFile; productRef = A32376DF231B4B12006D9749 /* SafePointer */; };
 		A3313E7D22FA7E1E00E52342 /* Prefab Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3313E7C22FA7E1E00E52342 /* Prefab Functions.swift */; };
 		A35ECE6522F662C50057B449 /* Bool Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35ECE6422F662C50057B449 /* Bool Extensions.swift */; };
 		A370A03822DFE7820097FFAD /* JanitorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A370A02E22DFE7820097FFAD /* JanitorKit.framework */; };
@@ -27,6 +30,7 @@
 		A3C1569322EE9177009A3314 /* Semantic Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1569222EE9177009A3314 /* Semantic Typealiases.swift */; };
 		A3C1569522EEA14B009A3314 /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1569422EEA14B009A3314 /* Pointer.swift */; };
 		A3C1569722EFE343009A3314 /* BoundPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1569622EFE342009A3314 /* BoundPointer.swift */; };
+		A3CA12D52411F5F300FDD938 /* TODO in Frameworks */ = {isa = PBXBuildFile; productRef = A3CA12D42411F5F300FDD938 /* TODO */; };
 		A3CDF49F22F62D65002ECFBA /* JanitorialEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CDF49E22F62D65002ECFBA /* JanitorialEngine.swift */; };
 		A3CDF4A122F631CC002ECFBA /* Black Holes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CDF4A022F631CC002ECFBA /* Black Holes.swift */; };
 		A3CDF4A322F64016002ECFBA /* Directory Analysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CDF4A222F64016002ECFBA /* Directory Analysis.swift */; };
@@ -39,6 +43,7 @@
 		A3D4793022E2593A00F83308 /* Unit Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792F22E2582800F83308 /* Unit Conversion.swift */; };
 		A3D4793122E2594C00F83308 /* DataSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792E22E2582800F83308 /* DataSize.swift */; };
 		A3D4793222E2594F00F83308 /* Age.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D4792D22E2582800F83308 /* Age.swift */; };
+		A3F2E616231CE07A00F39842 /* Atomic in Frameworks */ = {isa = PBXBuildFile; productRef = A3F2E615231CE07A00F39842 /* Atomic */; };
 		A3F3784122E11E1E00642A90 /* URL Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3784022E11E1E00642A90 /* URL Constants.swift */; };
 		A3F3784322E11FCE00642A90 /* URL Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F3784222E11FCE00642A90 /* URL Operators.swift */; };
 /* End PBXBuildFile section */
@@ -98,6 +103,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A30CA206233889EB0027128F /* PropertyWrapper Protocol in Frameworks */,
+				A3CA12D52411F5F300FDD938 /* TODO in Frameworks */,
+				A32376DD231B4AEC006D9749 /* LazyContainers in Frameworks */,
+				A32376E0231B4B12006D9749 /* SafePointer in Frameworks */,
+				A3F2E616231CE07A00F39842 /* Atomic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +272,13 @@
 			dependencies = (
 			);
 			name = JanitorKit;
+			packageProductDependencies = (
+				A32376DC231B4AEC006D9749 /* LazyContainers */,
+				A32376DF231B4B12006D9749 /* SafePointer */,
+				A3F2E615231CE07A00F39842 /* Atomic */,
+				A30CA205233889EB0027128F /* PropertyWrapper Protocol */,
+				A3CA12D42411F5F300FDD938 /* TODO */,
+			);
 			productName = JanitorKit;
 			productReference = A370A02E22DFE7820097FFAD /* JanitorKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -312,6 +329,13 @@
 				Base,
 			);
 			mainGroup = A370A02422DFE7820097FFAD;
+			packageReferences = (
+				A32376DB231B4AEC006D9749 /* XCRemoteSwiftPackageReference "Swift-Lazy-Patterns" */,
+				A32376DE231B4B12006D9749 /* XCRemoteSwiftPackageReference "Swift-Safe-Pointer" */,
+				A3F2E614231CE07A00F39842 /* XCRemoteSwiftPackageReference "Swift-Atomic" */,
+				A30CA204233889EB0027128F /* XCRemoteSwiftPackageReference "Swift-PropertyWrapper-Protocol" */,
+				A3CA12D32411F5F300FDD938 /* XCRemoteSwiftPackageReference "Swift-TODO" */,
+			);
 			productRefGroup = A370A02F22DFE7820097FFAD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -639,6 +663,77 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A30CA204233889EB0027128F /* XCRemoteSwiftPackageReference "Swift-PropertyWrapper-Protocol" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RougeWare/Swift-PropertyWrapper-Protocol.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		A32376DB231B4AEC006D9749 /* XCRemoteSwiftPackageReference "Swift-Lazy-Patterns" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RougeWare/Swift-Lazy-Patterns.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.1;
+			};
+		};
+		A32376DE231B4B12006D9749 /* XCRemoteSwiftPackageReference "Swift-Safe-Pointer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RougeWare/Swift-Safe-Pointer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		A3CA12D32411F5F300FDD938 /* XCRemoteSwiftPackageReference "Swift-TODO" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RougeWare/Swift-TODO.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		A3F2E614231CE07A00F39842 /* XCRemoteSwiftPackageReference "Swift-Atomic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RougeWare/Swift-Atomic.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A30CA205233889EB0027128F /* PropertyWrapper Protocol */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A30CA204233889EB0027128F /* XCRemoteSwiftPackageReference "Swift-PropertyWrapper-Protocol" */;
+			productName = "PropertyWrapper Protocol";
+		};
+		A32376DC231B4AEC006D9749 /* LazyContainers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A32376DB231B4AEC006D9749 /* XCRemoteSwiftPackageReference "Swift-Lazy-Patterns" */;
+			productName = LazyContainers;
+		};
+		A32376DF231B4B12006D9749 /* SafePointer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A32376DE231B4B12006D9749 /* XCRemoteSwiftPackageReference "Swift-Safe-Pointer" */;
+			productName = SafePointer;
+		};
+		A3CA12D42411F5F300FDD938 /* TODO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3CA12D32411F5F300FDD938 /* XCRemoteSwiftPackageReference "Swift-TODO" */;
+			productName = TODO;
+		};
+		A3F2E615231CE07A00F39842 /* Atomic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3F2E614231CE07A00F39842 /* XCRemoteSwiftPackageReference "Swift-Atomic" */;
+			productName = Atomic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A370A02522DFE7820097FFAD /* Project object */;
 }

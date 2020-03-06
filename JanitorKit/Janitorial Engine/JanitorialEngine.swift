@@ -32,9 +32,14 @@ public class JanitorialEngine {
     public var deletionApproach = URL.DeleteApproach.trashing
     
     
-    init(trackedDirectory: TrackedDirectory, checkingInterval: TimeInterval) {
+    public init(trackedDirectory: TrackedDirectory, checkingInterval: TimeInterval) {
         self.trackedDirectory = trackedDirectory
         self.checkingInterval = checkingInterval
+    }
+    
+    
+    deinit {
+        stop()
     }
 }
 

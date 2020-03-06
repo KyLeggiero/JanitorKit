@@ -17,6 +17,13 @@ import SwiftUI
 
 public protocol IdentifiableOnlyIfUsingSwiftUI: Hashable, Codable, Identifiable {
 }
+
+
+
+extension Binding: Identifiable where Value: Identifiable {
+    public var id: Value.ID { wrappedValue.id }
+}
+
 #else
 public protocol IdentifiableOnlyIfUsingSwiftUI: Hashable, Codable {
     /// A type representing the stable identity of the entity associated with `self`.

@@ -32,6 +32,23 @@ public extension Collection {
 
 
 
+public extension RangeReplaceableCollection {
+    
+    @discardableResult
+    mutating func removeFirstOrNil() -> Element? {
+        return isEmpty ? nil : removeFirst()
+    }
+    
+    
+    mutating func consumeEach(_ consumer: (Element) throws -> Void) rethrows {
+        while let element = self.removeFirstOrNil() {
+            try consumer(element)
+        }
+    }
+}
+
+
+
 public extension BidirectionalCollection {
     func suffix(while predicate: (Element) throws -> Bool) rethrows -> SubSequence { // TODO: Test
         guard let suffixStartIndex = try lastIndex(where: predicate) else {

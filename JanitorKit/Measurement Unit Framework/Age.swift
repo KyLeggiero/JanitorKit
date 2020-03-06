@@ -61,3 +61,11 @@ public extension BinaryFloatingPoint {
     var nanoseconds:  Age { Age(value: Age.Value(self), unit: .nanosecond) }
     var picoseconds:  Age { Age(value: Age.Value(self), unit: .picosecond) }
 }
+
+
+
+public extension TimeInterval {
+    init(_ age: Age) {
+        self.init(age.converted(to: .second).value)
+    }
+}
