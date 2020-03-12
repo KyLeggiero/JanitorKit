@@ -19,6 +19,7 @@
 		A32376E0231B4B12006D9749 /* SafePointer in Frameworks */ = {isa = PBXBuildFile; productRef = A32376DF231B4B12006D9749 /* SafePointer */; };
 		A328E25A2412B76600109432 /* CrossKitTypes in Frameworks */ = {isa = PBXBuildFile; productRef = A328E2592412B76600109432 /* CrossKitTypes */; };
 		A328E25E2414356500109432 /* Semantic function aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A328E25D2414356500109432 /* Semantic function aliases.swift */; };
+		A328E2652414729900109432 /* RectangleTools in Frameworks */ = {isa = PBXBuildFile; productRef = A328E2642414729900109432 /* RectangleTools */; };
 		A3313E7D22FA7E1E00E52342 /* Prefab Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3313E7C22FA7E1E00E52342 /* Prefab Functions.swift */; };
 		A35ECE6522F662C50057B449 /* Bool Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35ECE6422F662C50057B449 /* Bool Extensions.swift */; };
 		A370A03822DFE7820097FFAD /* JanitorKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A370A02E22DFE7820097FFAD /* JanitorKit.framework */; };
@@ -29,6 +30,7 @@
 		A39E572022EAC08900B416C4 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E571F22EAC08900B416C4 /* Measurement.swift */; };
 		A39EC54622F6D91A00D8015F /* Callback Return Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC54522F6D91A00D8015F /* Callback Return Type.swift */; };
 		A39EC54822F6E14500D8015F /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC54722F6E14500D8015F /* Generator.swift */; };
+		A3C0B3262419F03700559DC1 /* AttributedStringBuilder in Frameworks */ = {isa = PBXBuildFile; productRef = A3C0B3252419F03700559DC1 /* AttributedStringBuilder */; };
 		A3C1569322EE9177009A3314 /* Semantic Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1569222EE9177009A3314 /* Semantic Typealiases.swift */; };
 		A3C1569522EEA14B009A3314 /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1569422EEA14B009A3314 /* Pointer.swift */; };
 		A3C1569722EFE343009A3314 /* BoundPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C1569622EFE342009A3314 /* BoundPointer.swift */; };
@@ -108,8 +110,10 @@
 			files = (
 				A328E25A2412B76600109432 /* CrossKitTypes in Frameworks */,
 				A30CA206233889EB0027128F /* PropertyWrapper Protocol in Frameworks */,
+				A328E2652414729900109432 /* RectangleTools in Frameworks */,
 				A3CA12D52411F5F300FDD938 /* TODO in Frameworks */,
 				A32376DD231B4AEC006D9749 /* LazyContainers in Frameworks */,
+				A3C0B3262419F03700559DC1 /* AttributedStringBuilder in Frameworks */,
 				A32376E0231B4B12006D9749 /* SafePointer in Frameworks */,
 				A3F2E616231CE07A00F39842 /* Atomic in Frameworks */,
 			);
@@ -284,6 +288,8 @@
 				A30CA205233889EB0027128F /* PropertyWrapper Protocol */,
 				A3CA12D42411F5F300FDD938 /* TODO */,
 				A328E2592412B76600109432 /* CrossKitTypes */,
+				A328E2642414729900109432 /* RectangleTools */,
+				A3C0B3252419F03700559DC1 /* AttributedStringBuilder */,
 			);
 			productName = JanitorKit;
 			productReference = A370A02E22DFE7820097FFAD /* JanitorKit.framework */;
@@ -342,6 +348,8 @@
 				A30CA204233889EB0027128F /* XCRemoteSwiftPackageReference "Swift-PropertyWrapper-Protocol" */,
 				A3CA12D32411F5F300FDD938 /* XCRemoteSwiftPackageReference "Swift-TODO" */,
 				A328E2582412B76600109432 /* XCRemoteSwiftPackageReference "Swift-Cross-Kit-Types" */,
+				A328E2632414729900109432 /* XCRemoteSwiftPackageReference "Swift-Rectangle-Tools" */,
+				A3C0B3242419F03700559DC1 /* XCRemoteSwiftPackageReference "AttributedStringBuilder" */,
 			);
 			productRefGroup = A370A02F22DFE7820097FFAD /* Products */;
 			projectDirPath = "";
@@ -705,6 +713,22 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		A328E2632414729900109432 /* XCRemoteSwiftPackageReference "Swift-Rectangle-Tools" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RougeWare/Swift-Rectangle-Tools.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
+		A3C0B3242419F03700559DC1 /* XCRemoteSwiftPackageReference "AttributedStringBuilder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RougeWare/AttributedStringBuilder.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		A3CA12D32411F5F300FDD938 /* XCRemoteSwiftPackageReference "Swift-TODO" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RougeWare/Swift-TODO.git";
@@ -743,6 +767,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A328E2582412B76600109432 /* XCRemoteSwiftPackageReference "Swift-Cross-Kit-Types" */;
 			productName = CrossKitTypes;
+		};
+		A328E2642414729900109432 /* RectangleTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A328E2632414729900109432 /* XCRemoteSwiftPackageReference "Swift-Rectangle-Tools" */;
+			productName = RectangleTools;
+		};
+		A3C0B3252419F03700559DC1 /* AttributedStringBuilder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A3C0B3242419F03700559DC1 /* XCRemoteSwiftPackageReference "AttributedStringBuilder" */;
+			productName = AttributedStringBuilder;
 		};
 		A3CA12D42411F5F300FDD938 /* TODO */ = {
 			isa = XCSwiftPackageProductDependency;
