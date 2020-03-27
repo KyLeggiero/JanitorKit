@@ -26,6 +26,7 @@
 		A38014122307D4BB0063D5D3 /* Collection Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38014112307D4BB0063D5D3 /* Collection Extensions.swift */; };
 		A38014142307E3030063D5D3 /* Set Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38014132307E3030063D5D3 /* Set Extensions.swift */; };
 		A384846622ED9A460012113E /* Array Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A384846522ED9A460012113E /* Array Extensions.swift */; };
+		A38C7BAE241DF07B00EC2F02 /* DrawingTools in Frameworks */ = {isa = PBXBuildFile; productRef = A38C7BAD241DF07B00EC2F02 /* DrawingTools */; };
 		A39E571E22EABF2200B416C4 /* MeasurementUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E571D22EABF2200B416C4 /* MeasurementUnit.swift */; };
 		A39E572022EAC08900B416C4 /* Measurement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39E571F22EAC08900B416C4 /* Measurement.swift */; };
 		A39EC54622F6D91A00D8015F /* Callback Return Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39EC54522F6D91A00D8015F /* Callback Return Type.swift */; };
@@ -110,6 +111,7 @@
 			files = (
 				A328E25A2412B76600109432 /* CrossKitTypes in Frameworks */,
 				A30CA206233889EB0027128F /* PropertyWrapper Protocol in Frameworks */,
+				A38C7BAE241DF07B00EC2F02 /* DrawingTools in Frameworks */,
 				A328E2652414729900109432 /* RectangleTools in Frameworks */,
 				A3CA12D52411F5F300FDD938 /* TODO in Frameworks */,
 				A32376DD231B4AEC006D9749 /* LazyContainers in Frameworks */,
@@ -290,6 +292,7 @@
 				A328E2592412B76600109432 /* CrossKitTypes */,
 				A328E2642414729900109432 /* RectangleTools */,
 				A3C0B3252419F03700559DC1 /* AttributedStringBuilder */,
+				A38C7BAD241DF07B00EC2F02 /* DrawingTools */,
 			);
 			productName = JanitorKit;
 			productReference = A370A02E22DFE7820097FFAD /* JanitorKit.framework */;
@@ -350,6 +353,7 @@
 				A328E2582412B76600109432 /* XCRemoteSwiftPackageReference "Swift-Cross-Kit-Types" */,
 				A328E2632414729900109432 /* XCRemoteSwiftPackageReference "Swift-Rectangle-Tools" */,
 				A3C0B3242419F03700559DC1 /* XCRemoteSwiftPackageReference "AttributedStringBuilder" */,
+				A38C7BAC241DF07B00EC2F02 /* XCRemoteSwiftPackageReference "Swift-Drawing-Tools" */,
 			);
 			productRefGroup = A370A02F22DFE7820097FFAD /* Products */;
 			projectDirPath = "";
@@ -721,6 +725,14 @@
 				minimumVersion = 2.5.0;
 			};
 		};
+		A38C7BAC241DF07B00EC2F02 /* XCRemoteSwiftPackageReference "Swift-Drawing-Tools" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BenLeggiero/Swift-Drawing-Tools.git";
+			requirement = {
+				branch = feature/MVP;
+				kind = branch;
+			};
+		};
 		A3C0B3242419F03700559DC1 /* XCRemoteSwiftPackageReference "AttributedStringBuilder" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/RougeWare/AttributedStringBuilder.git";
@@ -772,6 +784,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A328E2632414729900109432 /* XCRemoteSwiftPackageReference "Swift-Rectangle-Tools" */;
 			productName = RectangleTools;
+		};
+		A38C7BAD241DF07B00EC2F02 /* DrawingTools */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A38C7BAC241DF07B00EC2F02 /* XCRemoteSwiftPackageReference "Swift-Drawing-Tools" */;
+			productName = DrawingTools;
 		};
 		A3C0B3252419F03700559DC1 /* AttributedStringBuilder */ = {
 			isa = XCSwiftPackageProductDependency;
