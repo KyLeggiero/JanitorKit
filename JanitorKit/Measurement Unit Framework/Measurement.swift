@@ -75,9 +75,22 @@ extension Measurement: Codable {}
 
 extension Measurement: CustomStringConvertible {
     public var description: String {
-        return "\(value) \(unit.name.text(whenAmountIs: value))"
+        return "\(valueString) \(unit.name.text(whenAmountIs: value))"
+    }
+    
+    
+    private var valueString: String {
+        numberFormatter.string(from: NSNumber(value: value)) ?? value.description
     }
 }
+
+
+
+private let numberFormatter: NumberFormatter = {
+    let numberFormatter = NumberFormatter()
+    numberFormatter.alwaysShowsDecimalSeparator = false
+    return numberFormatter
+}()
 
 
 
