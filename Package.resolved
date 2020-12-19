@@ -1,0 +1,133 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "AttributedStringBuilder",
+        "repositoryURL": "https://github.com/RougeWare/AttributedStringBuilder.git",
+        "state": {
+          "branch": "develop",
+          "revision": "d227fba8bc5145e5cebdf75b4eb1c37ae7576605",
+          "version": null
+        }
+      },
+      {
+        "package": "Atomic",
+        "repositoryURL": "https://github.com/RougeWare/Swift-Atomic.git",
+        "state": {
+          "branch": null,
+          "revision": "9e272359c739faefcbe4d45a42a6ad09afb8d13e",
+          "version": "0.2.0"
+        }
+      },
+      {
+        "package": "CrossKitTypes",
+        "repositoryURL": "https://github.com/RougeWare/Swift-Cross-Kit-Types.git",
+        "state": {
+          "branch": null,
+          "revision": "d64faa8d5e988352dff45e03a13da4f90c3a70e5",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "Swift Drawing Tools",
+        "repositoryURL": "https://github.com/BenLeggiero/Swift-Drawing-Tools.git",
+        "state": {
+          "branch": null,
+          "revision": "a3342704cdd5328784002aa03369fd0601f282d4",
+          "version": "1.1.1"
+        }
+      },
+      {
+        "package": "FunctionTools",
+        "repositoryURL": "https://github.com/RougeWare/Swift-Function-Tools",
+        "state": {
+          "branch": null,
+          "revision": "0bd76ca2c00120acf7ff840b5dcc1e700870ae22",
+          "version": "1.2.3"
+        }
+      },
+      {
+        "package": "SwiftImage",
+        "repositoryURL": "https://github.com/koher/swift-image.git",
+        "state": {
+          "branch": null,
+          "revision": "c61b8cf4613a7fc80d1c2a84231cef2909e837a1",
+          "version": "0.7.1"
+        }
+      },
+      {
+        "package": "LazyContainers",
+        "repositoryURL": "https://github.com/RougeWare/Swift-Lazy-Patterns.git",
+        "state": {
+          "branch": null,
+          "revision": "6981fb17266a8d59e27d44f9611954fd7d45cd7b",
+          "version": "4.0.0"
+        }
+      },
+      {
+        "package": "MultiplicativeArithmetic",
+        "repositoryURL": "https://github.com/RougeWare/Swift-MultiplicativeArithmetic.git",
+        "state": {
+          "branch": null,
+          "revision": "38eee08151bbbefbbb422d02ff2c8da1a8b8bfe1",
+          "version": "1.3.0"
+        }
+      },
+      {
+        "package": "OptionalTools",
+        "repositoryURL": "https://github.com/RougeWare/Swift-Optional-Tools.git",
+        "state": {
+          "branch": null,
+          "revision": "e930eccb0109de044b0c227a62d3df6c5e072f76",
+          "version": "1.1.3"
+        }
+      },
+      {
+        "package": "PropertyWrapperProtocol",
+        "repositoryURL": "https://github.com/RougeWare/Swift-PropertyWrapper-Protocol.git",
+        "state": {
+          "branch": null,
+          "revision": "f81b486ef9f40c2d678a0b0b56d7ae43daf522cc",
+          "version": "2.0.0"
+        }
+      },
+      {
+        "package": "RectangleTools",
+        "repositoryURL": "https://github.com/RougeWare/Swift-Rectangle-Tools.git",
+        "state": {
+          "branch": null,
+          "revision": "28d5ec88e786f65f3127c56049045c6b17fc3121",
+          "version": "2.9.0"
+        }
+      },
+      {
+        "package": "SafePointer",
+        "repositoryURL": "https://github.com/RougeWare/Swift-Safe-Pointer.git",
+        "state": {
+          "branch": null,
+          "revision": "a71a39d19275d90e13f362c3d23163dc41318d85",
+          "version": "2.1.3"
+        }
+      },
+      {
+        "package": "SimpleLogging",
+        "repositoryURL": "https://github.com/RougeWare/Swift-Simple-Logging.git",
+        "state": {
+          "branch": null,
+          "revision": "ac1c85ab2d633db51b6fb00606139310a152a65b",
+          "version": "0.4.4"
+        }
+      },
+      {
+        "package": "TODO",
+        "repositoryURL": "https://github.com/RougeWare/Swift-TODO.git",
+        "state": {
+          "branch": null,
+          "revision": "b8cd5bfb0d682f2ab525c9352ffd951d4d82edfd",
+          "version": "1.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
