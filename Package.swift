@@ -35,6 +35,7 @@ let package = Package(
         .package(url: "https://github.com/RougeWare/Swift-TODO.git", from: "1.1.0"),
         .package(url: "https://github.com/RougeWare/Swift-Atomic.git", from: "0.0.0"),
         .package(name: "SimpleLogging", url: "https://github.com/RougeWare/Swift-Simple-Logging.git", .upToNextMinor(from: "0.4.4")),
+        .package(name: "SwiftyUserDefaults", url: "https://github.com/sunshinejr/SwiftyUserDefaults.git", from: "5.3.0")
     ],
     
     targets: [
@@ -45,7 +46,8 @@ let package = Package(
             dependencies: [
                 "FunctionTools",
                 "PropertyWrapperProtocol",
-                "SimpleLogging"
+                "SimpleLogging",
+                "SwiftyUserDefaults",
             ]),
         .testTarget(
             name: "JanitorKitTests",
