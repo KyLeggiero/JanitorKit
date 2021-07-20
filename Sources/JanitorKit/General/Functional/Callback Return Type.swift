@@ -50,10 +50,10 @@ public typealias CallbackReturnType = ReturnsViaCallback
 
 
 
-public typealias BlindCallback = () -> CallbackReturnType
-public typealias Callback<Result> = (Result) -> CallbackReturnType
-public typealias Callback2<ResultA, ResultB> = (ResultA, ResultB) -> CallbackReturnType
-public typealias ChainedCallback<UltimateResult> = (Callback<UltimateResult>) -> ReturnsViaCallback
+public typealias StrongBlindCallback = () -> CallbackReturnType
+public typealias StrongCallback<Result> = (Result) -> CallbackReturnType
+public typealias StrongCallback2<ResultA, ResultB> = (ResultA, ResultB) -> CallbackReturnType
+public typealias StrongChainedCallback<UltimateResult> = (Callback<UltimateResult>) -> ReturnsViaCallback
 
 
 
