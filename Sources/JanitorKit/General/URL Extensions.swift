@@ -218,7 +218,7 @@ public extension URL {
     
     
     
-    typealias DeleteCallback = Callback<DeleteResult>
+    typealias DeleteCallback = StrongCallback<DeleteResult>
     
     
     
@@ -333,7 +333,7 @@ public extension Collection where Element == URL {
     
     typealias DeleteApproach = Element.DeleteApproach
     
-    typealias BatchDeleteCallback = Callback<BatchDeleteResult>
+    typealias BatchDeleteCallback = StrongCallback<BatchDeleteResult>
 }
 
 

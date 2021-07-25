@@ -25,7 +25,7 @@ import FunctionTools
 /// - Parameter input: The value to pass to the callback
 ///
 /// - Returns: A function which will pass `input` to any function passed to it
-public func call<Input>(passing input: Input) -> (_ callback: Callback<Input>) -> CallbackReturnType {
+public func call<Input>(passing input: Input) -> (_ callback: StrongCallback<Input>) -> CallbackReturnType {
     return { callback in
         return callback(input)
     }

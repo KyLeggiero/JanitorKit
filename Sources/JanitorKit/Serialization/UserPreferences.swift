@@ -37,7 +37,7 @@ public extension UserPreferences {
     
     
     
-    typealias OnTrackedDirectoryDidChange = Callback<[TrackedDirectory]>
+    typealias OnTrackedDirectoryDidChange = StrongCallback<[TrackedDirectory]>
 }
 
 
@@ -60,7 +60,7 @@ public extension UserPreferences {
    
    
    
-   typealias OnCheckingDelayDidChange = Callback<Age>
+   typealias OnCheckingDelayDidChange = StrongCallback<Age>
 }
 
 

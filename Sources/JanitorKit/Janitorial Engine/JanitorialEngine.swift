@@ -84,10 +84,10 @@ public extension JanitorialEngine {
     
     
     /// The kind of block called when the engine successfully starts
-    typealias DidStartCallback = BlindCallback
+    typealias DidStartCallback = StrongBlindCallback
     
     /// The kind of block called when the engine successfully stops
-    typealias DidStopCallback = BlindCallback
+    typealias DidStopCallback = StrongBlindCallback
     
     /// The kind of block called when the engine successfully restarts
     typealias DidRestartCallback = DidStartCallback
@@ -126,7 +126,7 @@ private extension JanitorialEngine {
     
     
     
-    typealias DidPreformCheckCallback = Callback<CheckResult>
+    typealias DidPreformCheckCallback = StrongCallback<CheckResult>
     
     
     
