@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - MeasurementUnit
 
-public protocol MeasurementUnit: IdentifiableOnlyIfUsingSwiftUI, CaseIterable where AllCases: RandomAccessCollection {
+public protocol MeasurementUnit: IdentifiableOnlyIfUsingSwiftUI, Codable, Hashable, CaseIterable where AllCases: RandomAccessCollection {
 
     static var base: Self { get }
     

@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -9,10 +9,10 @@ let package = Package(
     name: "JanitorKit",
     
     platforms: [
-        .macOS(.v10_15),
-        .iOS(.v13),
-        .tvOS(.v13),
-        .watchOS(.v6),
+        .macOS(.v12),
+        .iOS(.v15),
+        .tvOS(.v15),
+        .watchOS(.v8),
     ],
     
     products: [
@@ -24,18 +24,20 @@ let package = Package(
     
     dependencies: [
         // Dependencies declare other packages that this package depends on.
+        .package(name: "CollectionTools", url: "https://github.com/RougeWare/Swift-Collection-Tools.git", from: "3.0.0"),
         .package(name: "FunctionTools", url: "https://github.com/RougeWare/Swift-Function-Tools", from: "1.2.0"),
         .package(name: "PropertyWrapperProtocol", url: "https://github.com/RougeWare/Swift-PropertyWrapper-Protocol.git", from: "2.0.0"),
-        .package(url: "https://github.com/RougeWare/Swift-Lazy-Patterns.git", from: "4.0.0"),
-        .package(url: "https://github.com/RougeWare/Swift-Safe-Pointer.git", from: "2.0.0"),
-        .package(url: "https://github.com/RougeWare/Swift-Cross-Kit-Types.git", from: "1.0.0"),
-        .package(url: "https://github.com/RougeWare/Swift-Rectangle-Tools.git", from: "2.5.0"),
-        .package(url: "https://github.com/BenLeggiero/Swift-Drawing-Tools.git", from: "1.1.1"),
-        .package(url: "https://github.com/RougeWare/AttributedStringBuilder.git", .branch("develop")),
-        .package(url: "https://github.com/RougeWare/Swift-TODO.git", from: "1.1.0"),
-        .package(url: "https://github.com/RougeWare/Swift-Atomic.git", from: "0.0.0"),
+//        .package(url: "https://github.com/RougeWare/Swift-Lazy-Patterns.git", from: "4.0.0"),
+//        .package(url: "https://github.com/RougeWare/Swift-Safe-Pointer.git", from: "2.0.0"),
+//        .package(url: "https://github.com/RougeWare/Swift-Cross-Kit-Types.git", from: "1.0.0"),
+//        .package(url: "https://github.com/RougeWare/Swift-Rectangle-Tools.git", from: "2.5.0"),
+//        .package(url: "https://github.com/BenLeggiero/Swift-Drawing-Tools.git", from: "1.1.1"),
+//        .package(url: "https://github.com/RougeWare/AttributedStringBuilder.git", .branch("develop")),
+//        .package(url: "https://github.com/RougeWare/Swift-TODO.git", from: "1.1.0"),
+//        .package(url: "https://github.com/RougeWare/Swift-Atomic.git", from: "0.0.0"),
+        .package(name: "RangeTools", url: "https://github.com/RougeWare/Swift-Range-Tools.git", from: "1.2.1"),
         .package(name: "SimpleLogging", url: "https://github.com/RougeWare/Swift-Simple-Logging.git", .upToNextMinor(from: "0.4.4")),
-        .package(name: "SwiftyUserDefaults", url: "https://github.com/sunshinejr/SwiftyUserDefaults.git", from: "5.3.0")
+        .package(name: "SwiftyUserDefaults", url: "https://github.com/sunshinejr/SwiftyUserDefaults.git", from: "5.3.0"),
     ],
     
     targets: [
@@ -44,8 +46,10 @@ let package = Package(
         .target(
             name: "JanitorKit",
             dependencies: [
+                "CollectionTools",
                 "FunctionTools",
                 "PropertyWrapperProtocol",
+                "RangeTools",
                 "SimpleLogging",
                 "SwiftyUserDefaults",
             ]),

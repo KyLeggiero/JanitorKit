@@ -2,44 +2,40 @@
 //  JanitorialEngine.swift
 //  JanitorKit
 //
-//  Created by Ben Leggiero on 2019-08-03.
-//  Copyright © 2019 Ben Leggiero. All rights reserved.
+//  Created by Ky Leggiero on 2021-07-25.
 //
 
 import Foundation
 
+import CollectionTools
 
 
-/// The core engine of Janitor. This will dedicate itself to ensuring that one directory never gets out of control, by
-/// trashing files which are older than a certain age, or which push that directory over a certain size.
-///
-/// This was designed to have multiple engines running at once; one for each tracked directory.
-public class JanitorialEngine {
-    public var trackedDirectory: TrackedDirectory {
+
+/// The core engine of Janitor. This coordinates multiple Single-Directory Janitors, taking care of their lifecycles and concurrency
+public final actor JanitorialEngine {
+    
+    private var janitors: [SingleDirectoryJanitor] = []
+    
+    /// Whether to perform a "dry run", where actions are pretended but no changes are made.
+    ///
+    /// - Attention: This is an expensive operation! Do not toggle this lightly; all janitors will be immediately stopped, reconfigured, and started again
+    fileprivate var _dryRun: Bool {
         didSet {
-            restart()
+            if oldValue != _dryRun {
+                stopAll()
+                startAll()
+            }
         }
     }
     
-    public var checkingInterval: TimeInterval {
-        didSet {
-            restart()
+    
+    public init(dryRun: Bool = false, coordinating janitors: [SingleDirectoryJanitor]) async {
+        self._dryRun = dryRun
+        self.janitors = janitors
+        
+        Task(priority: Self.taskPriority) {
+            await self.startAll()
         }
-    }
-    
-    private var timer: Timer?
-    
-    public var deletionApproach = URL.DeleteApproach.trashing
-    
-    
-    public init(trackedDirectory: TrackedDirectory, checkingInterval: TimeInterval) {
-        self.trackedDirectory = trackedDirectory
-        self.checkingInterval = checkingInterval
-    }
-    
-    
-    deinit {
-        stop()
     }
 }
 
@@ -47,97 +43,119 @@ public class JanitorialEngine {
 
 public extension JanitorialEngine {
     
-    /// Starts the janitorial engine, immediately performing the check and
-    ///
-    /// - Parameter callback: _optional_ Called after the engine starts and the first check is successfully performed
-    @discardableResult
-    func start(andThen callback: @escaping DidStartCallback = blackhole) -> ReturnsViaCallback {
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: checkingInterval, repeats: true, block: timerDidFire)
-        return performCheck { result in
-            return callback()
+    convenience init(dryRun: Bool = false, coordinatingJanitorsFor trackedDirectories: [TrackedDirectory]) async {
+        await self.init(dryRun: dryRun, coordinating: trackedDirectories.map { SingleDirectoryJanitor(trackedDirectory: $0) })
+    }
+    
+    
+    nonisolated var trackedDirectories: [TrackedDirectory] {
+        get { enqueue { [self] in await janitors.map(\.trackedDirectory) } }
+        set {
+            enqueue { [self] in
+                let changes = await janitors.map(\.trackedDirectory).difference(from: newValue)
+                
+                for change in changes {
+                    switch change {
+                    case .insert(offset: _, element: let newDirectory, associatedWith: _):
+                        await self.coordinate(janitor: .init(trackedDirectory: newDirectory))
+                        
+                    case .remove(offset: _, element: let oldDirectory, associatedWith: _):
+                        await self.retire(janitorTracking: oldDirectory)
+                    }
+                }
+            }
         }
     }
     
     
-    /// Immediately stops the janitorial engine. No questions asked, no strings attached
+    /// Coordinates the given janitor with exiting ones, to ensure it can clean its directory efficiently.
     ///
-    /// - Parameter callback: _optional_ Called immediately after the engine was successfully stopped
-    @discardableResult
-    func stop(andThen callback: @escaping DidStopCallback = blackhole) -> ReturnsViaCallback {
-        timer?.invalidate()
-        timer = nil
-        return callback()
+    /// This inherently starts the janitor immediately.
+    ///
+    /// - Parameter janitor: The janitor to coordinate
+    func coordinate(janitor: SingleDirectoryJanitor) async {
+        self.janitors += janitor
+        
+        start(janitor)
     }
     
     
-    /// Calls for the timer to stop and start again
+    /// Stops coordinating the given janitor.
     ///
-    /// - Parameter callback: _optional_ Called after the engine restarts and the first check is successfully performed
-    @discardableResult
-    func restart(andThen callback: @escaping DidRestartCallback = blackhole) -> ReturnsViaCallback {
-        stop {
-            self.start(andThen: callback)
+    /// This inherently stops the janitor immediately.
+    ///
+    /// - Parameter janitor: The janitor to stop coordinating
+    func retire(janitor: SingleDirectoryJanitor) async {
+        self.janitors.remove(firstElementWithId: janitor.id)
+    }
+    
+    
+    func retire(janitorTracking directoryToRemove: TrackedDirectory) async {
+        if let foundIndex = janitors.firstIndex(where: { $0.trackedDirectory == directoryToRemove }) {
+            janitors.remove(at: foundIndex)
         }
     }
     
     
+    func setDryRun(_ closure: @escaping @Sendable @autoclosure () -> Bool) {
+        _dryRun = closure()
+    }
     
-    /// The kind of block called when the engine successfully starts
-    typealias DidStartCallback = StrongBlindCallback
     
-    /// The kind of block called when the engine successfully stops
-    typealias DidStopCallback = StrongBlindCallback
-    
-    /// The kind of block called when the engine successfully restarts
-    typealias DidRestartCallback = DidStartCallback
+    nonisolated var dryRun: Bool {
+        get { enqueue { await self._dryRun } }
+        set { enqueue { await self.setDryRun(newValue)} }
+    }
 }
 
 
 
 private extension JanitorialEngine {
     
-    func timerDidFire(_ timer: Timer) {
-        performCheck()
-    }
+    static let taskPriority = TaskPriority.background
     
     
-    @discardableResult
-    func performCheck(andThen callback: @escaping DidPreformCheckCallback = blackhole) -> ReturnsViaCallback {
-        let filesThatShouldBeDeleted = trackedDirectory.filesThatShouldBeDeleted
-        
-        guard !filesThatShouldBeDeleted.isEmpty else {
-            return callback(.allFilesWereGood)
-        }
-        
-        return filesThatShouldBeDeleted.deleteAll(by: .trashing) { batchDeleteResult in
-                switch batchDeleteResult {
-                case .allSuccess:
-                    return callback(.successfullyCleaned(cleanedUpFiles: filesThatShouldBeDeleted))
-                    
-                case .mixed(let successes, let remainingErrors):
-                    return callback(.failedToCleanSomeBadFiles(cleanedUpFiles: successes, uncleanFiles: remainingErrors))
-                    
-                case .allFailed(let uncleanFiles):
-                    return callback(.failedToCleanAllBadFiles(uncleanFiles: uncleanFiles))
-                }
+    func startAll() {
+        enqueue { [self] in
+            for janitor in await janitors {
+                await janitor.start(dryRun: _dryRun)
+            }
         }
     }
     
     
-    
-    typealias DidPreformCheckCallback = StrongCallback<CheckResult>
-    
-    
-    
-    enum CheckResult {
-        case allFilesWereGood
-        case successfullyCleaned(cleanedUpFiles: Set<URL>)
-        case failedToCleanAllBadFiles(uncleanFiles: Set<UncleanFile>)
-        case failedToCleanSomeBadFiles(cleanedUpFiles: Set<URL>, uncleanFiles: Set<UncleanFile>)
+    func stopAll() {
+        enqueue { [self] in
+            for janitor in await janitors {
+                await janitor.stop()
+            }
+        }
     }
     
     
+    func start(_ janitor: SingleDirectoryJanitor) {
+        enqueue { [self] in
+            await janitor.start(dryRun: _dryRun)
+        }
+    }
     
-    typealias UncleanFile = DeletionFailure
+    
+    func stop(_ janitor: SingleDirectoryJanitor) {
+        enqueue {
+            await janitor.stop()
+        }
+    }
+}
+
+
+
+private func enqueue(_ task: @escaping @Sendable () async -> Void) {
+    Task(priority: JanitorialEngine.taskPriority) {
+        await task()
+    }
+}
+
+
+private func enqueue<Value>(_ task: @escaping @Sendable () async -> Value) -> Value {
+    sync(at: JanitorialEngine.taskPriority, task)
 }

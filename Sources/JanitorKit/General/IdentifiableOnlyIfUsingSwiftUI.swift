@@ -15,21 +15,17 @@ import SwiftUI
 
 
 
-public protocol IdentifiableOnlyIfUsingSwiftUI: Hashable, Codable, Identifiable {
-}
+public typealias IdentifiableOnlyIfUsingSwiftUI = Identifiable
 
 
-
-extension Binding: Identifiable where Value: Identifiable {
-    public var id: Value.ID { wrappedValue.id }
-}
 
 #else
-public protocol IdentifiableOnlyIfUsingSwiftUI: Hashable, Codable {
-    /// A type representing the stable identity of the entity associated with `self`.
+public protocol IdentifiableOnlyIfUsingSwiftUI {
+    
+    /// A type representing the stable identity of the entity associated with an instance.
     associatedtype ID : Hashable
 
-    /// The stable identity of the entity associated with `self`.
+    /// The stable identity of the entity associated with this instance.
     var id: Self.ID { get }
 }
 #endif

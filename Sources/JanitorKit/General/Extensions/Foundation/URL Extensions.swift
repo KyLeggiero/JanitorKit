@@ -191,29 +191,24 @@ public extension URL {
     /// - Parameter fileManager:    _optional_ The file manager which will carry out the deletion. Defaults to `.standard`.
     /// - Parameter queueGenerator: _optional_ The queue on which to perform the deletion. Defaults to `.newDeleteQueue()`.
     /// - Parameter callback:       Called when the deletion has finished.
-    @discardableResult
     func delete(by approach: DeleteApproach = .trashing,
-                using fileManager: FileManager = .default,
-                on queue: DispatchQueue = .newDeleteQueue(),
-                andThen callback: @escaping DeleteCallback) -> ReturnsViaCallback
+                using fileManager: FileManager = .default)
+    async -> DeleteResult
     {
-        queue.async {
-            do {
-                switch approach {
-                case .removing:
-                    try fileManager.removeItem(at: self)
-                    
-                case .trashing:
-                    try fileManager.trashItem(at: self, resultingItemURL: nil)
-                }
-                return <-callback(.success)
+        do {
+            switch approach {
+            case .removing:
+                try fileManager.removeItem(at: self)
+                
+            case .trashing:
+                try fileManager.trashItem(at: self, resultingItemURL: nil)
             }
-            catch {
-                return <-callback(.otherFailure(error: error))
-            }
+            
+            return .success
         }
-        
-        return .willReturnFromUntypedContext
+        catch {
+            return .otherFailure(error: error)
+        }
     }
     
     
@@ -277,56 +272,45 @@ public extension Collection where Element == URL {
     /// - Parameter fileManager:    _optional_ The file manager which will carry out the deletion. Defaults to `.standard`.
     /// - Parameter queueGenerator: _optional_ The function which will generate a new queue on which to perform each deletion. Defaults to `{ .newDeleteQueue() }`.
     /// - Parameter callback:       Called when all the deletions have finished.
-    @discardableResult
     func deleteAll(by approach: DeleteApproach,
                    using fileManager: FileManager = .default,
-                   on queueGenerator: @escaping JanitorKit.Generator<DispatchQueue> = { .newDeleteQueue() },
-                   andThen callback: @escaping BatchDeleteCallback) -> ReturnsViaCallback {
+                   on queueGenerator: @escaping JanitorKit.Generator<DispatchQueue> = { .newDeleteQueue() })
+    async -> BatchDeleteResult {
         var numberOfCompletedDeleteAttempts: UInt = 0
         var failures = Set<DeletionFailure>()
         var successfulDeletions = Set<URL>()
-        let completionProcessingQueue = DispatchQueue(label: "Deletion Completion Processor \(UUID())", qos: .userInteractive)
         
-        func onEachDeleted(url: URL, result: URL.DeleteResult) -> CallbackReturnType {
-            completionProcessingQueue.sync {
-                numberOfCompletedDeleteAttempts += 1
+        func onEachDeleted(url: URL, result: URL.DeleteResult) {
+            numberOfCompletedDeleteAttempts += 1
+            
+            switch result {
+            case .success:
+                successfulDeletions.insert(url)
                 
-                switch result {
-                case .success:
-                    successfulDeletions.insert(url)
-                    
-                case .lackOfPermissions:
-                    failures.insert(.init(url: url, error: LackOfPermissionsError()))
-                    
-                case .otherFailure(let error):
-                    failures.insert(.init(url: url, error: error))
-                }
+            case .lackOfPermissions:
+                failures.insert(.init(url: url, error: LackOfPermissionsError()))
                 
-                if numberOfCompletedDeleteAttempts >= count {
-                    if failures.isEmpty {
-                        return callback(.allSuccess)
-                    }
-                    else if failures.count >= numberOfCompletedDeleteAttempts {
-                        return callback(.allFailed(errors: failures))
-                    }
-                    else {
-                        return callback(.mixed(successfullyDeletedFiles: successfulDeletions,
-                                               remainingErrors: failures))
-                    }
-                }
-                else {
-                    return .willCallCallbackOnALaterIteration
-                }
+            case .otherFailure(let error):
+                failures.insert(.init(url: url, error: error))
             }
         }
         
-        forEach { url in
-            url.delete(by: approach, using: fileManager, on: queueGenerator()) { deleteResult in
-                onEachDeleted(url: url, result: deleteResult)
-            }
+        for url in self {
+            let deleteResult = await url.delete(by: approach, using: fileManager)
+            onEachDeleted(url: url, result: deleteResult)
         }
         
-        return .willReturnFromUntypedContext
+        if failures.isEmpty {
+            return .allSuccess
+        }
+        else if failures.count >= numberOfCompletedDeleteAttempts
+                    || successfulDeletions.isEmpty {
+            return .allFailed(errors: failures)
+        }
+        else {
+            return .mixed(successfullyDeletedFiles: successfulDeletions,
+                          remainingErrors: failures)
+        }
     }
     
     

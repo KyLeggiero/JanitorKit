@@ -82,7 +82,7 @@ public extension SimpleInitializableUnitDependent {
 
 
 
-public extension SimpleInitializableUnitDependent where Self: HasBaseUnit {
+public extension SimpleInitializableUnitDependent { // : HasBaseUnit
     
     func converted(to other: Self) -> Value {
         return other.unit.convertFromBase(value: unit.convertToBase(value: value))

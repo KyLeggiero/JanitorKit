@@ -11,6 +11,7 @@ import Foundation
 
 
 public struct TrackedDirectory {
+    
     public let uuid: UUID
     public var isEnabled: Bool
     public var url: URL

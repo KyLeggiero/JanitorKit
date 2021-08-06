@@ -11,15 +11,14 @@ import Foundation
 
 
 internal extension TrackedDirectory {
-    var filesThatShouldBeDeleted: Set<URL> {
-        get {
-            filesThathouldFileBeDeleted(in:
+    func filesThatShouldBeDeleted() async -> Set<URL> {
+        filesThathouldFileBeDeleted(
+            in:
                 url
-                    .allChildren()
-                    .annotatedAndSortedWithOldestAtStart()
-                )
-                .mapToSet { $0.url }
-        }
+                .allChildren()
+                .annotatedAndSortedWithOldestAtStart()
+        )
+            .mapToSet { $0.url }
     }
     
     
