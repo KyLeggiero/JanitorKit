@@ -31,7 +31,7 @@ let package = Package(
 //        .package(url: "https://github.com/RougeWare/Swift-Safe-Pointer.git", from: "2.0.0"),
 //        .package(url: "https://github.com/RougeWare/Swift-Cross-Kit-Types.git", from: "1.0.0"),
 //        .package(url: "https://github.com/RougeWare/Swift-Rectangle-Tools.git", from: "2.5.0"),
-//        .package(url: "https://github.com/BenLeggiero/Swift-Drawing-Tools.git", from: "1.1.1"),
+//        .package(url: "https://github.com/KyLeggiero/Swift-Drawing-Tools.git", from: "1.1.1"),
 //        .package(url: "https://github.com/RougeWare/AttributedStringBuilder.git", .branch("develop")),
 //        .package(url: "https://github.com/RougeWare/Swift-TODO.git", from: "1.1.0"),
 //        .package(url: "https://github.com/RougeWare/Swift-Atomic.git", from: "0.0.0"),

@@ -2,8 +2,8 @@
 //  SingleDirectoryJanitor.swift
 //  JanitorKit
 //
-//  Created by Ben Leggiero on 2019-08-03.
-//  Copyright © 2019 Ben Leggiero BH-1-PS
+//  Created by Ky Leggiero on 2019-08-03.
+//  Copyright © 2019 Ky Leggiero BH-1-PS
 //
 
 import Combine
@@ -18,7 +18,7 @@ import Foundation
 public actor SingleDirectoryJanitor {
     
     /// The directory that this janitor is tracking
-    public let trackedDirectory: TrackedDirectory
+    public nonisolated let trackedDirectory: TrackedDirectory
     
     private let checkingInterval: TimeInterval
     
@@ -63,7 +63,7 @@ public extension SingleDirectoryJanitor {
     /// Starts the janitorial engine, immediately performing the check and
     /// - Parameter dryRun: If `true`, no files will be deleted, but lines will be logged describing the action that would have been taken instead
     func start(dryRun: Bool) async {
-        
+//        fatalError()
         stop()
         
         timer = Timer.publish(every: checkingInterval, on: .current, in: .default)
